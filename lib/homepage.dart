@@ -34,54 +34,57 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       body:
-      Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      Center(
+        child: ListView(
 
-        children:
-        <Widget>[
-          const Image(image: AssetImage('images/20220509_175535.jpg'),
-            width: 160,
-            height: 160,
-            fit: BoxFit.fill,
-          ),
-          const Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Center(
-              child: Text(
-                'WELCOME NITIANS!',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'RobotoSlab',
-                  fontSize: 40,
+
+          children:
+          <Widget>[
+
+            const Image(image: AssetImage('images/20220509_175535.jpg'),
+              width: 150,
+              height: 150,
+
+            ),
+            const Padding(
+              padding: EdgeInsets.all(80.0),
+              child: Center(
+                child: Text(
+                  'WELCOME NITIANS!',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'RobotoSlab',
+                    fontSize: 40,
+                  ),
                 ),
               ),
             ),
-          ),
-          /*const Image(image:
-            AssetImage(''),),*/
-          SizedBox(
-            height: 100,
-            width: 300,
-            child: ElevatedButton(
-              onPressed:(
-                  ) {
-                Navigator.of(context).pushNamed('/login');
-              },
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+            /*const Image(image:
+              AssetImage(''),),*/
+            SizedBox(
+              height: 100,
+              width: 300,
+              child: ElevatedButton(
+                onPressed:(
+                    ) {
+                  Navigator.of(context).pushNamed('/login');
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                 ),
+                child: const Text('Get Started',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                  ),),
               ),
-              child: const Text('Get Started',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                ),),
             ),
-          ),
 
-        ],
+          ],
 
+        ),
       ),
     );
   }
