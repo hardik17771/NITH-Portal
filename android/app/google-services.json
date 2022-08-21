@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "71764283429",
+    "project_id": "nith-portal",
+    "storage_bucket": "nith-portal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71764283429:android:fc29f8d595b349a78d2fcc",
+        "android_client_info": {
+          "package_name": "com.example.nithh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71764283429-fir7ql11a51suoaepg3d7gjcblsn4p5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBahWCjAy__FvZ79_4rwcTqCeB_hyixCYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71764283429-fir7ql11a51suoaepg3d7gjcblsn4p5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
