@@ -71,7 +71,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'NITH Login',
+                  'Student Login',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -91,7 +91,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'NITH Email',
+                  labelText: 'Institute Email',
                 ),
               ),
             ),
