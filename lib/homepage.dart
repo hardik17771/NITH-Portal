@@ -14,14 +14,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: const Color(0xFF130f40),
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.black,
+
         title:
         const Center(
           child: Text('NITH Outpass Portal',
             style: TextStyle(
-            color:Colors.white,
+                color: Color(0xFFdff9fb),
             ),
 
           ) ,
@@ -29,18 +30,26 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       body:
+
       Center(
         child: ListView(
 
 
           children:
           <Widget>[
+
           const SizedBox(
           height: 50,
           width: 100,),
+
             const CircleAvatar(
-             backgroundImage: AssetImage('images/20220509_175535.jpg'),
-              radius: 90,
+              radius: 95,
+              backgroundColor: Colors.white,
+              child:  CircleAvatar(
+               backgroundImage: AssetImage('images/20220509_175535.jpg'),
+                radius: 90,
+
+              ),
             ),
             const SizedBox(
               height: 0,
@@ -52,8 +61,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    'WELCOME NITIANS!',
+                    'WELCOME NITians!',
+                    textAlign: TextAlign.center,
+
                     style: TextStyle(
+
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       fontFamily: 'RobotoSlab',
@@ -66,34 +78,46 @@ class _MyHomePageState extends State<MyHomePage> {
             /*const Image(image:
               AssetImage(''),),*/
             const Divider(
-                color: Colors.black,
+                color: Colors.white,
+              height: 10,
+              indent: 80,
+              endIndent: 80,
             ),
             const SizedBox(
               height: 50,
-              width: 100,
+              width: 0,
             ),
-            SizedBox(
-              height: 100,
-              width: 300,
-              child: ElevatedButton(
-                onPressed:(
-                    ) {
-                  Navigator.of(context).pushNamed('/login');
-                },
-                style:
-                ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+            UnconstrainedBox(
+              child: SizedBox(
+                height: 80,
+                width: 280,
+                child: ElevatedButton(
+                  onPressed:(
+                      ) {
+                    Navigator.of(context).pushNamed('/login');
+                  },
+                  style:
+                  ElevatedButton.styleFrom(
+                    side: const BorderSide(width:3, color:Colors.white),
+                    primary: const Color(0xFF3B3B98),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(200),
+                    ),
                   ),
+                  child: const Text('Get Started',
+
+                    style: TextStyle(
+
+                      fontSize: 30,
+
+
+                    ),),
                 ),
-                child: const Text('Get Started',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                  ),),
               ),
             ),
+        const SizedBox(
+          height: 50,
+          width: 280,),
 
           ],
 
