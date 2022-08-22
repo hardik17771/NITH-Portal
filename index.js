@@ -34,7 +34,7 @@ app.use((err, req, res, next) => {
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.sscsppa.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}?retryWrites=true&w=majority`
+    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.sscsppa.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}?`
   )
   .then((result) => {
     console.log("Database Connected!!");
