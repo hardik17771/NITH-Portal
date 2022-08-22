@@ -1,0 +1,24 @@
+<% layout('boilerplate') -%>
+
+<h2>Name: <%= form.Name  %></h2>
+<h2>Department: <%= form.Department %></h2>
+<h2>Room_num: <%= form.RoomNum  %></h2>
+<h2>phone: <%= form.phone  %></h2>
+<h2>address: <%= form.address %></h2>
+
+
+
+
+
+
+<footer>
+  <a href="/user/forms/<%=form._id%>/edit ">Edit</a>
+
+  <a href="/user/forms">All forms</a>
+</footer>
+
+<p>  
+    <form action="/user/forms/<%=form._id%>?_method=DELETE " method="POST"> 
+    <button>Delete</button>
+    </form>
+</p>

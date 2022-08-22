@@ -1,0 +1,10 @@
+<% layout('boilerplate') -%>
+<h1>All Forms</h1>
+
+<div class="mb-3"><a href="/user/forms/new">Add Form</a></div>
+
+<ul>
+  <% for (let forms of form){%>
+  <li><a href="/user/forms/<%= forms._id %>  "><%= forms.Name %></a></li>
+  <% } %>
+</ul>
