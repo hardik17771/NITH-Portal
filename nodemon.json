@@ -1,7 +1,0 @@
-{
-  "env": {
-    "MONGO_USER": "NITH_APP",
-    "MONGO_PASSWORD": "PXFv7E2SbeLQ0oVO",
-    "MONGO_DEFAULT_DATABASE": "student"
-  }
-}
