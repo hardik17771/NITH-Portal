@@ -23,7 +23,7 @@ app.use("/admin", adminRoutes);
 app.use("/user", formRoutes);
 
 app.all("*", (req, res, next) => {
-  next(new ExpressError("Page Not Found", 404));
+  next(res.render("errorAll"));
 });
 
 app.use((err, req, res, next) => {
