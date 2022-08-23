@@ -13,15 +13,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF130f40),
+    return Stack(
+        children: [
+    Container(
+    decoration: const BoxDecoration(
+    image: DecorationImage(
+        image: AssetImage('images/joshua-woroniecki-TspYRqQrErc-unsplash.jpg'),
+    fit: BoxFit.cover,
+    ),
+    ),
+    ),
+     Scaffold(
+       backgroundColor: Colors.transparent,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
 
         title:
         const Center(
           child: Text('NITH Outpass Portal',
             style: TextStyle(
+
                 color: Color(0xFFdff9fb),
             ),
 
@@ -55,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 0,
               width: 100,
             ),
-            const Padding(
+             const Padding(
               padding: EdgeInsets.all(80.0),
               child: Center(
                 child: Padding(
@@ -99,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style:
                   ElevatedButton.styleFrom(
                     side: const BorderSide(width:3, color:Colors.white),
-                    primary: const Color(0xFF3B3B98),
+                    primary: const Color(0xFF1C53D1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(200),
                     ),
@@ -123,6 +134,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
         ),
       ),
-    );
+     ),
+        ],
+        );
   }
 }
