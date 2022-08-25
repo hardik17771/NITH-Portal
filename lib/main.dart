@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Formm.dart';
 import 'package:nithh/login_page.dart';
 import 'login_page.dart';
 import 'homepage.dart';
@@ -16,6 +17,8 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/home': (BuildContext context) => const MyApp(),
         '/login': (BuildContext context) => const LoginPage(),
+        '/form' : (BuildContext context) => const FormPage(),
+
       }
     );
   }

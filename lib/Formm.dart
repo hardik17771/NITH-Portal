@@ -4,28 +4,27 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class FormPage extends StatelessWidget {
+  const FormPage({Key? key}) : super(key: key);
 
 
   @override
   Widget build(BuildContext context) {
     return Stack(
         children: [
-    Container(
-    decoration: const BoxDecoration(
-    image: DecorationImage(
-        image: AssetImage('images/joshua-woroniecki-TspYRqQrErc-unsplash.jpg'),
-    fit: BoxFit.cover,
-    ),),),
-      Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar( backgroundColor: Colors.transparent,
-          title: const Center(child: Text('NITH Outpass Portal'),),),
-        body: const MyStatefulWidget(),
-      ),
-    ]
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/joshua-woroniecki-TspYRqQrErc-unsplash.jpg'),
+                fit: BoxFit.cover,
+              ),),),
+          Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: AppBar( backgroundColor: Colors.transparent,
+              title: const Center(child: Text('NITH Outpass Portal'),),),
+            body: const MyStatefulWidget(),
+          ),
+        ]
     );
   }
 }
@@ -38,17 +37,19 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController oneController = TextEditingController();
+  TextEditingController twoController = TextEditingController();
+  TextEditingController threeController = TextEditingController();
   bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    signIn(String email,String pass) async {
+    stuDetail(String one,String two, String three) async {
       SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
       Map data = {
-        'email': email,
-        'password': pass,
+        'one': one,
+        'two': two,
+        'three' : three,
       };
       dynamic jsonResponse;
       var response = await http.post(Uri.parse('//url') );
@@ -79,7 +80,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Student Login',
+                  'Student Details',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
@@ -95,23 +96,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(30),
                 child: const Text(
-                  'Login Form',
+                  'Fill Form',
                   style: TextStyle(fontSize: 25,
-                  fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w500,
 
-                  color: Colors.white),
+                      color: Colors.white),
                 )),
             Container(
               padding: const EdgeInsets.all(10),
               child: TextFormField(
-                controller: emailController,
+                controller: oneController,
 
                 decoration: const InputDecoration(
 
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white, width: 2.0),
                   ),
-                  labelText: 'Institute Email',
+                  labelText: 'INPUT 1',
                   labelStyle: TextStyle(
                     color: Colors.white,
                   ),
@@ -122,57 +123,95 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextFormField(
                 obscureText: true,
-                controller: passwordController,
+                controller: twoController,
                 decoration: const InputDecoration(
 
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white, width: 2.0),
                   ),
-                  labelText: 'Password',
+                  labelText: 'INPUT 2',
                   labelStyle: TextStyle(
                     color: Colors.white,
                   ),
                 ),
               ),
             ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextFormField(
+                obscureText: true,
+                controller: twoController,
+                decoration: const InputDecoration(
 
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white, width: 2.0),
+                  ),
+                  labelText: 'INPUT 3',
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextFormField(
+                obscureText: true,
+                controller: twoController,
+                decoration: const InputDecoration(
+
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white, width: 2.0),
+                  ),
+                  labelText: 'INPUT 4',
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
             const SizedBox(
               height: 30,
               width: 60,
             ),
 
-             UnconstrainedBox(
-               child: SizedBox(
-                 height: 80,
-                 width: 280,
-                 child: ElevatedButton( onPressed: emailController.text == "" || passwordController.text == "" ? null : () {
-                   setState(() {
-                     _isLoading = true;
-                   });
-                   signIn(emailController.text, passwordController.text);
-                 },
-
-                   style:
-                   ElevatedButton.styleFrom(
-                     side: const BorderSide(width:3, color:Colors.white),
-                     primary: const Color(0xFF1C53D1),
-                     shape: RoundedRectangleBorder(
-                       borderRadius: BorderRadius.circular(200),
-                     ),
-                   ),
-                   child: const Text('LOGIN',
-
-                     style: TextStyle(
-                       fontWeight: FontWeight.w400,
-                       color: Colors.white,
-                       fontSize: 30,
+            Container(
 
 
-                     ),),
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: UnconstrainedBox(
+                child: SizedBox(
+                  height: 80,
+                  width: 280,
+                  child: ElevatedButton( onPressed: oneController.text == "" || twoController.text == "" ? null : () {
+                    setState(() {
+                      _isLoading = true;
+                    });
+                    stuDetail(oneController.text, twoController.text, threeController.text);
+                  },
 
-                 ),
-               ),
-             ),
+                    style:
+                    ElevatedButton.styleFrom(
+                      side: const BorderSide(width:3, color:Colors.white),
+                      primary: const Color(0xFF1C53D1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(200),
+                      ),
+                    ),
+                    child: const Text('SUBMIT',
+
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                        fontSize: 30,
+
+
+                      ),),
+
+                  ),
+                ),
+              ),
+            ),
 
             const Divider(
               color: Colors.white,
@@ -181,37 +220,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               endIndent: 80,
             ),
 
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: UnconstrainedBox(
-                child: SizedBox(
-                  height: 80,
-                  width: 280,
-                  child: ElevatedButton(
-                    onPressed:(
-                        ) {
-                      Navigator.of(context).pushNamed('/form');
-                    },
-                    style:
-                    ElevatedButton.styleFrom(
-                      side: const BorderSide(width:3, color:Colors.white),
-                      primary: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(200),
-                      ),
-                    ),
-                    child: const Text('Form',
-
-                      style: TextStyle(
-
-                        fontSize: 30,
-
-
-                      ),),
-                  ),
-                ),
-              ),
-            ),
           ],
         ));
   }
