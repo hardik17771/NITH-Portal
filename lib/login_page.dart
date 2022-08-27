@@ -12,11 +12,21 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-      return Scaffold(
-        backgroundColor: Colors.black,
-        appBar: AppBar( backgroundColor: Colors.transparent,
-          title: const Center(child: Text('NITH Outpass Portal'),),),
-        body: const MyStatefulWidget(),
+      return Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('images/wp8732522.png'),
+                  fit: BoxFit.cover,
+                ),),),
+            Scaffold(
+              backgroundColor: Colors.transparent,
+              appBar: AppBar( backgroundColor: Colors.transparent,
+                title: const Center(child: Text('NITH Outpass Portal'),),),
+              body: const MyStatefulWidget(),
+            ),
+          ]
       );
 
   }
@@ -145,8 +155,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
                    style:
                    ElevatedButton.styleFrom(
-                     side: const BorderSide(width:3, color:Colors.white),
-                     primary: const Color(0xFF1C53D1),
+                     side: const BorderSide(width:3, color:Color(0xFF2e5cb8)),
+                     primary: const Color(0xFF2e5cb8),
+                     onPrimary: const Color(0xFF2e5cb8),
                      shape: RoundedRectangleBorder(
                        borderRadius: BorderRadius.circular(200),
                      ),
@@ -154,7 +165,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                    child: const Text('LOGIN',
 
                      style: TextStyle(
-                       fontWeight: FontWeight.w400,
+                       fontWeight: FontWeight.w500,
                        color: Colors.white,
                        fontSize: 30,
 
