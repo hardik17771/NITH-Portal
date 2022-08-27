@@ -11,22 +11,14 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-        children: [
-    Container(
-    decoration: const BoxDecoration(
-    image: DecorationImage(
-        image: AssetImage('images/joshua-woroniecki-TspYRqQrErc-unsplash.jpg'),
-    fit: BoxFit.cover,
-    ),),),
-      Scaffold(
-        backgroundColor: Colors.transparent,
+
+      return Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar( backgroundColor: Colors.transparent,
           title: const Center(child: Text('NITH Outpass Portal'),),),
         body: const MyStatefulWidget(),
-      ),
-    ]
-    );
+      );
+
   }
 }
 
@@ -124,7 +116,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 obscureText: true,
                 controller: passwordController,
                 decoration: const InputDecoration(
-
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white, width: 2.0),
                   ),

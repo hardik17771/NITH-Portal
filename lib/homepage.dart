@@ -19,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Container(
     decoration: const BoxDecoration(
     image: DecorationImage(
-        image: AssetImage('images/joshua-woroniecki-TspYRqQrErc-unsplash.jpg'),
+        image: AssetImage('images/wp8732522.png'),
     fit: BoxFit.cover,
     ),
     ),
@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
      Scaffold(
        backgroundColor: Colors.transparent,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black38,
 
         title:
         const Center(
@@ -56,9 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
             const CircleAvatar(
               radius: 95,
-              backgroundColor: Colors.white,
+              backgroundColor: Color(0xFF2e5cb8),
               child:  CircleAvatar(
-               backgroundImage: AssetImage('images/20220509_175535.jpg'),
+               backgroundImage: AssetImage('images/main-qimg-e6996159b3fdbc3579503cfa4720c284-c.jpeg'),
                 radius: 90,
 
               ),
@@ -110,9 +110,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   style:
                   ElevatedButton.styleFrom(
-                    side: const BorderSide(width:3, color:Colors.white),
-                    primary: const Color(0xFF1C53D1),
+                    side: const BorderSide(width:5, color: Color(0xFF2e5cb8)),
+                    primary: const Color(0xFF3399ff),
                     shape: RoundedRectangleBorder(
+                      
                       borderRadius: BorderRadius.circular(200),
                     ),
                   ),
