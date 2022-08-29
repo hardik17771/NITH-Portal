@@ -12,6 +12,7 @@ const formRoutes = require("./routes/form.router");
 const authRoutes = require("./routes/auth");
 const passport = require("passport");
 const session = require("express-session");
+const userRoutes = require("./routes/app.user.router");
 
 const sessionConfig = {
   secret: "thisshouldbeabettersecret!",
@@ -43,6 +44,7 @@ app.use(passport.session());
 app.use("/admin", adminRoutes);
 app.use("/user", formRoutes);
 app.use("/", authRoutes);
+app.use("/api/v1", userRoutes);
 
 app.all("*", (req, res, next) => {
   next(res.render("errorAll"));
