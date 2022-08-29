@@ -1,0 +1,57 @@
+[
+  { "roll": "21DEC001", "name": "SNEHIL KUSHWAHA", "cgpa": "8.88" },
+
+  { "roll": "21DEC002", "name": "ABHISHEK", "cgpa": "9.21" },
+
+  { "roll": "21DEC003", "name": "RHYDHAM SINGLA", "cgpa": "9.21" },
+
+  { "roll": "21DEC004", "name": "AMITABH KUMAR", "cgpa": "8.88" },
+
+  { "roll": "21DEC005", "name": "RAGHVI GOYAL", "cgpa": "9.17" },
+
+  { "roll": "21DEC006", "name": "KASHISH THAKUR", "cgpa": "9" },
+
+  { "roll": "21DEC007", "name": "ABHISHEK", "cgpa": "9.42" },
+
+  { "roll": "21DEC008", "name": "SANCHIT SHARMA", "cgpa": "9.33" },
+
+  { "roll": "21DEC009", "name": "ARYAN MITTAL", "cgpa": "9.21" },
+
+  { "roll": "21DEC010", "name": "ISHITA SHARMA", "cgpa": "9.38" },
+
+  { "roll": "21DEC011", "name": "ABHISHEK KUMAR", "cgpa": "9.33" },
+
+  { "roll": "21DEC012", "name": "GARVIT SHARMA", "cgpa": "9" },
+
+  { "roll": "21DEC013", "name": "RIDHI SHARMA", "cgpa": "9.17" },
+
+  { "roll": "21DEC014", "name": "ABHIJEET KUMAR", "cgpa": "9.08" },
+
+  { "roll": "21DEC015", "name": "RISHIKESH", "cgpa": "9.08" },
+
+  { "roll": "21DEC016", "name": "AYUSH SAHU", "cgpa": "8.92" },
+
+  { "roll": "21DEC017", "name": "ANSHU TANK", "cgpa": "9.04" },
+
+  { "roll": "21DEC018", "name": "SAURABH SONI", "cgpa": "8.54" },
+
+  { "roll": "21DEC019", "name": "AAYUSH", "cgpa": "9.5" },
+
+  { "roll": "21DEC020", "name": "ABHISHEK", "cgpa": "8.88" },
+
+  { "roll": "21DEC021", "name": "TANIA CHOUDHARY", "cgpa": "8.96" },
+
+  { "roll": "21DEC022", "name": "SHASHANK SINGH", "cgpa": "9.33" },
+
+  { "roll": "21DEC023", "name": "EITISH KUMAR", "cgpa": "9.25" },
+
+  { "roll": "21DEC024", "name": "JAYISHNU UTTANE", "cgpa": "8.71" },
+
+  { "roll": "21DEC025", "name": "JAYANT KASHYAP", "cgpa": "9.21" },
+
+  { "roll": "21DEC026", "name": "KANAK KHOLWAL", "cgpa": "9.25" },
+
+  { "roll": "21DEC027", "name": "ATUL KAPOOR", "cgpa": "9" },
+
+  { "roll": "21DEC028", "name": "TEJASVI SINGH", "cgpa": "8.58" }
+]
