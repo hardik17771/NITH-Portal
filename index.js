@@ -13,6 +13,7 @@ const authRoutes = require("./routes/auth");
 const passport = require("passport");
 const session = require("express-session");
 const userRoutes = require("./routes/app.user.router");
+const studentModel = require("./models/student");
 
 const sessionConfig = {
   secret: "thisshouldbeabettersecret!",
