@@ -69,3 +69,16 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+
+    project.evaluationDependsOn(':app')
+
+    afterEvaluate {project ->
+        if (project.hasProperty("android") && project.property("android").compileSdkVersion.equals("android-R")) {
+            android {
+                compileSdkVersion 28
+            }
+        }
+    }
+}

@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 
 class LoginPage extends StatelessWidget {
@@ -32,6 +34,7 @@ class LoginPage extends StatelessWidget {
   }
 }
 
+
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);
 
@@ -46,12 +49,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
+
     signIn(String email,String pass) async {
       SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
       Map data = {
         'email': email,
         'password': pass,
       };
+
       dynamic jsonResponse;
       var response = await http.post(Uri.parse('//url') );
       if(response.statusCode == 200) {
@@ -73,6 +78,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         }
       }
     }
+
     return Padding(
         padding: const EdgeInsets.all(10),
         child: ListView(
@@ -146,12 +152,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                child: SizedBox(
                  height: 80,
                  width: 280,
-                 child: ElevatedButton( onPressed: emailController.text == "" || passwordController.text == "" ? null : () {
-                   setState(() {
-                     _isLoading = true;
-                   });
-                   signIn(emailController.text, passwordController.text);
-                 },
+                 child: ElevatedButton(
+                   onPressed: () {
+
+                     Navigator.of(context).pushNamed('/logg');
+                   },
 
                    style:
                    ElevatedButton.styleFrom(

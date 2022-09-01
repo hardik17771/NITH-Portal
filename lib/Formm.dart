@@ -52,7 +52,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         'three' : three,
       };
       dynamic jsonResponse;
-      var response = await http.post(Uri.parse('//url') );
+      var response = await http.post(Uri.parse('https://nith-portal22.herokuapp.com/api/v1/student?search=') );
       if(response.statusCode == 200) {
         jsonResponse = json.decode(response.body);
         if(jsonResponse != null) {
