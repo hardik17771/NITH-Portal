@@ -1,0 +1,82 @@
+<% layout('boilerplate') -%>
+
+<div class="row">
+  <h1 class="text-center">Edit FORM</h1>
+  <div class="col-6 offset-3">
+    <form action="/user/forms/<%=form._id%>?_method=PUT " method="POST">
+      <div>
+        <label for="Name">Name</label>
+        <input
+          type="text"
+          id="Name"
+          name="form[Name]"
+          value="<%= form.Name %> "
+        />
+      </div>
+      <br />
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="form[description]"
+          value="<%= form.description%> "
+        ></textarea>
+      </div>
+      <br />
+      <div>
+        <label for="Department">Department</label>
+        <input
+          type="text"
+          id="Department"
+          name="form[Department]"
+          value="<%= form.Department %> "
+        />
+      </div>
+      <br />
+      <div>
+        <label for="Room_Num">Room_Num</label>
+        <input
+          type="text"
+          id="Room_Num"
+          name="form[RoomNum]"
+          value="<%= form.RoomNum %> "
+        />
+      </div>
+      <br />
+
+      <div>
+        <label for="phone">phone</label>
+        <input
+          type="text"
+          id="phone"
+          name="form[phone]"
+          value="<%= form.phone %> "
+        />
+      </div>
+      <br />
+
+      <div class="mb-3">
+        <label class="form-label" for="address">Address</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="address"
+          name="form[address]"
+          value="<%= form.address %> "
+        ></textarea>
+      </div>
+      <br />
+
+      <div class="mb-3">
+        <button class="btn btn-info">Update Form</button>
+      </div>
+      <br />
+      <br />
+      <footer>
+        <a href="/user/forms/<%=form._id%> ">Back to Form</a>
+      </footer>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<% layout('boilerplate') -%>
+
+<div class="row">
+  <h1 class="text-center">New Form</h1>
+  <div class="col-6 offset-3">
+    <form action="/user/forms" method="POST">
+      <div>
+        <label for="Name">Name</label>
+        <input type="text" id="Name" name="form[Name]" />
+      </div>
+      <br />
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="form[description]"
+        ></textarea>
+      </div>
+      <br />
+      <div>
+        <label for="Department">Department</label>
+        <input type="text" id="Department" name="form[Department]" />
+      </div>
+      <br />
+      <div>
+        <label for="Room_Num">Room_Num</label>
+        <input type="text" id="Room_Num" name="form[RoomNum]" />
+      </div>
+      <br />
+
+      <div>
+        <label for="phone">phone</label>
+        <input type="text" id="phone" name="form[phone]" />
+      </div>
+      <br />
+
+      <div class="mb-3">
+        <label class="form-label" for="address">Address</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="address"
+          name="form[address]"
+        ></textarea>
+      </div>
+      <br />
+
+      <button class="btn btn-success">Add Form</button>
+      <br />
+
+      <br />
+      <footer>
+        <a href="/user/forms">All Forms</a>
+      </footer>
+    </form>
+  </div>
+</div>

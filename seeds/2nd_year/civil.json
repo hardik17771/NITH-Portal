@@ -1,0 +1,493 @@
+[{"roll":"21BCE001",
+"name":"ARADHYA KAPOOR",
+"cgpa":"9.25"},
+
+{"roll":"21BCE002",
+"name":"SHASHWAT",
+"cgpa":"8.92"},
+
+{"roll":"21BCE003",
+"name":"ACHYUTA NAND PANDEY",
+"cgpa":"9.29"},
+
+{"roll":"21BCE004",
+"name":"ARJIT CHATURVEDI",
+"cgpa":"9.62"},
+
+{"roll":"21BCE005",
+"name":"DEVANSHU SHARMA",
+"cgpa":"8.83"},
+
+{"roll":"21BCE006",
+"name":"SHIKHAR TRIPATHI",
+"cgpa":"9.5"},
+
+{"roll":"21BCE007",
+"name":"SACHIN SHARMA",
+"cgpa":"8"},
+
+{"roll":"21BCE008",
+"name":"SARTHAK SANDILYA MISHRA",
+"cgpa":"8.5"},
+
+{"roll":"21BCE009",
+"name":"MD SHAQUIB ALAM",
+"cgpa":"7.62"},
+
+{"roll":"21BCE010",
+"name":"DEVANSH BANGA",
+"cgpa":"6.33"},
+
+{"roll":"21BCE011",
+"name":"ATISH KUMAR",
+"cgpa":"8.17"},
+
+{"roll":"21BCE012",
+"name":"ADITYA KAPOOR",
+"cgpa":"8.96"},
+
+{"roll":"21BCE013",
+"name":"ARNANSHU SAINI",
+"cgpa":"7.96"},
+
+{"roll":"21BCE014",
+"name":"ADITI SHARMA",
+"cgpa":"8.79"},
+
+{"roll":"21BCE015",
+"name":"HARSH GOYAL",
+"cgpa":"9"},
+
+{"roll":"21BCE016",
+"name":"RAGHAV SHARMA",
+"cgpa":"8.88"},
+
+{"roll":"21BCE017",
+"name":"PRIYA SHARMA",
+"cgpa":"9.12"},
+
+{"roll":"21BCE018",
+"name":"VIYUSH BANYAL",
+"cgpa":"8.79"},
+
+{"roll":"21BCE019",
+"name":"ANTRIKSHA MEHTA",
+"cgpa":"8.92"},
+
+{"roll":"21BCE020",
+"name":"SATWIK MAHAJAN",
+"cgpa":"8.92"},
+
+{"roll":"21BCE021",
+"name":"CHINMAY",
+"cgpa":"9.12"},
+
+{"roll":"21BCE022",
+"name":"ABHINAV PARSWAL",
+"cgpa":"8.58"},
+
+{"roll":"21BCE023",
+"name":"PEEYUSH GULERIA",
+"cgpa":"8.29"},
+
+{"roll":"21BCE024",
+"name":"AKSHIT",
+"cgpa":"8.17"},
+
+{"roll":"21BCE025",
+"name":"SHRIYA DATTAL",
+"cgpa":"8.54"},
+
+{"roll":"21BCE026",
+"name":"ABHISHEK RANA",
+"cgpa":"8.17"},
+
+{"roll":"21BCE027",
+"name":"SAKSHAM SHARMA",
+"cgpa":"8.96"},
+
+{"roll":"21BCE028",
+"name":"ARYAN KAUSHIK",
+"cgpa":"8.83"},
+
+{"roll":"21BCE029",
+"name":"ARPIT",
+"cgpa":"9.29"},
+
+{"roll":"21BCE030",
+"name":"SHIVANSH KATOCH",
+"cgpa":"9"},
+
+{"roll":"21BCE031",
+"name":"AYUSHMAAN CHAUHAN",
+"cgpa":"8.71"},
+
+{"roll":"21BCE032",
+"name":"SWASTIK SHARMA",
+"cgpa":"9.33"},
+
+{"roll":"21BCE033",
+"name":"SHARIQ VERMA",
+"cgpa":"8.29"},
+
+{"roll":"21BCE034",
+"name":"ISHIKA",
+"cgpa":"8.96"},
+
+{"roll":"21BCE035",
+"name":"AANCHAL CHAUHAN",
+"cgpa":"9.21"},
+
+{"roll":"21BCE036",
+"name":"PRITANJALI SEN",
+"cgpa":"9"},
+
+{"roll":"21BCE037",
+"name":"RUCHI SHARMA",
+"cgpa":"8.33"},
+
+{"roll":"21BCE038",
+"name":"GAURAV AGRAWAL",
+"cgpa":"4.62"},
+
+{"roll":"21BCE039",
+"name":"BOMMIREDDY ROHITHREDDY",
+"cgpa":"8.96"},
+
+{"roll":"21BCE040",
+"name":"AVANISH PANDEY",
+"cgpa":"8.58"},
+
+{"roll":"21BCE041",
+"name":"BALKRISHAN CHOTIA",
+"cgpa":"8.71"},
+
+{"roll":"21BCE042",
+"name":"SAGUN SINGH",
+"cgpa":"7.54"},
+
+{"roll":"21BCE043",
+"name":"SHUBHAM",
+"cgpa":"8.75"},
+
+{"roll":"21BCE044",
+"name":"VISHWAJIT KUMAR",
+"cgpa":"8.46"},
+
+{"roll":"21BCE045",
+"name":"NAND KISHORE SHARMA",
+"cgpa":"8.58"},
+
+{"roll":"21BCE046",
+"name":"PRANAV VEER SINGH",
+"cgpa":"9.21"},
+
+{"roll":"21BCE047",
+"name":"VISHAL SHARMA",
+"cgpa":"8.62"},
+
+{"roll":"21BCE048",
+"name":"ADITI TIWARI",
+"cgpa":"9.5"},
+
+{"roll":"21BCE049",
+"name":"ANSHUMAN RANA",
+"cgpa":"8.54"},
+
+{"roll":"21BCE050",
+"name":"AKASH SHARMA",
+"cgpa":"9.46"},
+
+{"roll":"21BCE051",
+"name":"RITIK KUMAR",
+"cgpa":"8.71"},
+
+{"roll":"21BCE052",
+"name":"SHIVANSH HANDA",
+"cgpa":"7.96"},
+
+{"roll":"21BCE053",
+"name":"PUNEET",
+"cgpa":"8.92"},
+
+{"roll":"21BCE054",
+"name":"ISHAN THAKUR",
+"cgpa":"8.38"},
+
+{"roll":"21BCE055",
+"name":"RADHIKA",
+"cgpa":"8.92"},
+
+{"roll":"21BCE056",
+"name":"ADITYA MAURYA",
+"cgpa":"8.83"},
+
+{"roll":"21BCE057",
+"name":"PIYUSH RAJ",
+"cgpa":"9"},
+
+{"roll":"21BCE058",
+"name":"NITIN PATEL",
+"cgpa":"8.58"},
+
+{"roll":"21BCE059",
+"name":"JIGYASA ANAND",
+"cgpa":"9.12"},
+
+{"roll":"21BCE060",
+"name":"SAHIL KHAN",
+"cgpa":"8.88"},
+
+{"roll":"21BCE061",
+"name":"ANSHAL SHARMA",
+"cgpa":"7.75"},
+
+{"roll":"21BCE062",
+"name":"SHUBHAM DHAKAR",
+"cgpa":"4.92"},
+
+{"roll":"21BCE063",
+"name":"MD SOHAIB REZA",
+"cgpa":"8.12"},
+
+{"roll":"21BCE064",
+"name":"DHEERAJ KUMAR",
+"cgpa":"6.08"},
+
+{"roll":"21BCE065",
+"name":"AMRENDRA KUMAR",
+"cgpa":"7.71"},
+
+{"roll":"21BCE066",
+"name":"DEEP SAGAR KUMAR",
+"cgpa":"7.54"},
+
+{"roll":"21BCE067",
+"name":"SHYAMSUNDER SWAMI",
+"cgpa":"8.71"},
+
+{"roll":"21BCE068",
+"name":"DEEPAK YADAV",
+"cgpa":"8.88"},
+
+{"roll":"21BCE069",
+"name":"PANKAJ CHOUDHARY",
+"cgpa":"9"},
+
+{"roll":"21BCE070",
+"name":"SANJU BIDIYASAR",
+"cgpa":"8.38"},
+
+{"roll":"21BCE071",
+"name":"KRITIKA KUMARI",
+"cgpa":"9.5"},
+
+{"roll":"21BCE072",
+"name":"RAKESH SWAMI",
+"cgpa":"8.79"},
+
+{"roll":"21BCE073",
+"name":"DEVARAM",
+"cgpa":"8.08"},
+
+{"roll":"21BCE074",
+"name":"SHIVANK CHAUDHARY",
+"cgpa":"8.92"},
+
+{"roll":"21BCE075",
+"name":"ANSHUL",
+"cgpa":"8.46"},
+
+{"roll":"21BCE076",
+"name":"SAKSHAM CHANDEL",
+"cgpa":"8.12"},
+
+{"roll":"21BCE077",
+"name":"NAVJOT SINGH",
+"cgpa":"8.46"},
+
+{"roll":"21BCE078",
+"name":"PARUL KAJAL",
+"cgpa":"8.46"},
+
+{"roll":"21BCE079",
+"name":"ANIKET CHOUHAN",
+"cgpa":"9.58"},
+
+{"roll":"21BCE080",
+"name":"SRISHTI CHOUDHARY",
+"cgpa":"9.5"},
+
+{"roll":"21BCE081",
+"name":"SOMANSHU",
+"cgpa":"8.75"},
+
+{"roll":"21BCE082",
+"name":"RAHUL GULERIA",
+"cgpa":"7.96"},
+
+{"roll":"21BCE083",
+"name":"REETIK KUMAR",
+"cgpa":"6.92"},
+
+{"roll":"21BCE084",
+"name":"KRITIKA SHARMA",
+"cgpa":"8.58"},
+
+{"roll":"21BCE085",
+"name":"RADHESH CHOUDHARY",
+"cgpa":"8.83"},
+
+{"roll":"21BCE086",
+"name":"SHWETA THAKUR",
+"cgpa":"8.62"},
+
+{"roll":"21BCE087",
+"name":"SHALU",
+"cgpa":"8.62"},
+
+{"roll":"21BCE088",
+"name":"SAHIL PRASHAR",
+"cgpa":"8.96"},
+
+{"roll":"21BCE089",
+"name":"DISHANT",
+"cgpa":"8.25"},
+
+{"roll":"21BCE090",
+"name":"GAUTAM KUMAR BHAGAT",
+"cgpa":"7.83"},
+
+{"roll":"21BCE091",
+"name":"LOKESH KUMAR",
+"cgpa":"9"},
+
+{"roll":"21BCE092",
+"name":"SHUBHAM",
+"cgpa":"7.92"},
+
+{"roll":"21BCE093",
+"name":"ROHAN VARISTH",
+"cgpa":"7.04"},
+
+{"roll":"21BCE094",
+"name":"RAMAN KUMAR",
+"cgpa":"8.21"},
+
+{"roll":"21BCE095",
+"name":"YOGESH DHIMAN",
+"cgpa":"5.46"},
+
+{"roll":"21BCE096",
+"name":"MAYANK BANSAL",
+"cgpa":"5.71"},
+
+{"roll":"21BCE097",
+"name":"PARAG SINGH",
+"cgpa":"8.42"},
+
+{"roll":"21BCE098",
+"name":"SIDDHARTH BANSIWAL",
+"cgpa":"7.12"},
+
+{"roll":"21BCE099",
+"name":"ANSHUL SINGH JAISWAL",
+"cgpa":"5.5"},
+
+{"roll":"21BCE100",
+"name":"NIKITA VERMA",
+"cgpa":"8.92"},
+
+{"roll":"21BCE101",
+"name":"SANDESH RAPREY",
+"cgpa":"9"},
+
+{"roll":"21BCE102",
+"name":"ANJALI BHARDWAJ",
+"cgpa":"8.62"},
+
+{"roll":"21BCE103",
+"name":"UJJVAL",
+"cgpa":"8.17"},
+
+{"roll":"21BCE104",
+"name":"KARTIK",
+"cgpa":"8.79"},
+
+{"roll":"21BCE105",
+"name":"VISHAL DHIMAN",
+"cgpa":"8.67"},
+
+{"roll":"21BCE106",
+"name":"SAKSHAM KASHYAP",
+"cgpa":"8.67"},
+
+{"roll":"21BCE107",
+"name":"TANVI",
+"cgpa":"9.25"},
+
+{"roll":"21BCE108",
+"name":"AMAN",
+"cgpa":"7.67"},
+
+{"roll":"21BCE109",
+"name":"VIVEK JAGARWAL",
+"cgpa":"7.92"},
+
+{"roll":"21BCE110",
+"name":"MOHD WAQAR",
+"cgpa":"8.08"},
+
+{"roll":"21BCE111",
+"name":"MUNEEM MEENA",
+"cgpa":"8.25"},
+
+{"roll":"21BCE112",
+"name":"SANGAM SHARMA",
+"cgpa":"8.92"},
+
+{"roll":"21BCE113",
+"name":"NIKHIL VERMA",
+"cgpa":"7.21"},
+
+{"roll":"21BCE114",
+"name":"PANKAJ THAKUR",
+"cgpa":"8.08"},
+
+{"roll":"21BCE115",
+"name":"SAKSHAM KAPOOR",
+"cgpa":"8.25"},
+
+{"roll":"21BCE116",
+"name":"POOJA MEENA",
+"cgpa":"8.71"},
+
+{"roll":"21BCE117",
+"name":"PASANG DOLKER",
+"cgpa":"8.12"},
+
+{"roll":"21BCE118",
+"name":"SUMIT KUMAR",
+"cgpa":"8"},
+
+{"roll":"21BCE119",
+"name":"NITISH BAMBNAWAT",
+"cgpa":"9.12"},
+
+{"roll":"21BCE120",
+"name":"KUNDANA",
+"cgpa":"8.17"},
+
+{"roll":"21BCE121",
+"name":"JYOTIKA JAKHAR",
+"cgpa":"8.96"},
+
+{"roll":"21BCE122",
+"name":"CHETNA VERMA",
+"cgpa":"8.83"},
+
+{"roll":"21BCE123",
+"name":"PREETI BAIRWA",
+"cgpa":"8.46"}
+
+]
