@@ -47,6 +47,10 @@ app.use("/user", formRoutes);
 app.use("/", authRoutes);
 app.use("/api/v1", userRoutes);
 
+app.get("/login", (req, res) => {
+  res.render("admin/login");
+});
+
 app.all("*", (req, res, next) => {
   next(res.render("errorAll"));
 });

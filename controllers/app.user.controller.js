@@ -15,3 +15,26 @@ exports.getStudents = async (req, res, next) => {
     res.json(allData);
   }
 };
+
+exports.postForm = async (req, res, next) => {
+  let { name, purpose, branch, duration, roll } = req.body;
+  console.log(req.body);
+  const regex = new RegExp(escapeRegex(req.body.roll), "gi");
+  const studentExists = await Student.findOne({ roll: regex });
+
+  if (studentExists.form) {
+    const form = req.body;
+    await Student.updateOne({ form: form });
+    console.log(studentExists);
+    res.status(201).json({
+      type: "success",
+      message: "form submitted successfully",
+      data: req.body,
+    });
+  } else {
+    res.status(201).json({
+      type: "failure",
+      message: "form is already submitted",
+    });
+  }
+};
