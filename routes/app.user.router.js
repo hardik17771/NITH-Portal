@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.get("/student", appUserController.getStudents);
 
+router.post("/form", appUserController.postForm);
+
 module.exports = router;
