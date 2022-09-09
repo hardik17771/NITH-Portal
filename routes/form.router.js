@@ -5,7 +5,7 @@ const userController = require("../controllers/user.controller");
 const router = express.Router();
 
 //forms
-router.get("/forms", userController.getForms);
+// router.get("/forms", userController.getForms);
 
 router.get("/forms/new", userController.newForm);
 

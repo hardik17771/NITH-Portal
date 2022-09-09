@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const session = require("express-session");
+const userController = require("../controllers/user.controller");
 require("./passport-setup");
 // Auth middleware that checks if the user is logged in
 const isLoggedIn = (req, res, next) => {
@@ -49,6 +50,7 @@ router.get("/good", isLoggedIn, isStudentId, (req, res) => {
     email: req.user.emails[0].value,
   });
 });
+router.get("/user/forms", isLoggedIn, isStudentId, userController.getForms);
 
 // Auth Routes
 router.get(
@@ -61,7 +63,7 @@ router.get(
   passport.authenticate("google", { failureRedirect: "/failed" }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect("/good");
+    res.redirect("/user/forms");
   }
 );
 
