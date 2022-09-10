@@ -50,7 +50,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
 
-    signIn(String email,String pass) async {
+    /*signIn(String email,String pass) async {
       SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
       Map data = {
         'email': email,
@@ -77,7 +77,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           print(response.body);
         }
       }
-    }
+    }*/
 
     return Padding(
         padding: const EdgeInsets.all(10),
@@ -195,10 +195,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   height: 80,
                   width: 280,
                   child: ElevatedButton(
-                    onPressed:(
-                        ) {
-                      Navigator.of(context).pushNamed('/form');
-                    },
+                    onPressed:() =>
+                      Navigator.of(context).pushNamed('/form'),
                     style:
                     ElevatedButton.styleFrom(
                       side: const BorderSide(width:3, color:Colors.white),

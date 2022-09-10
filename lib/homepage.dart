@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -14,6 +14,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double heigh = MediaQuery.of(context).size.height;
+    double widt = MediaQuery.of(context).size.width;
     return Stack(
         children: [
     Container(
@@ -49,9 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children:
           <Widget>[
 
-          const SizedBox(
-          height: 50,
-          width: 100,),
+           SizedBox(
+            height: heigh * 0.01, //height to 9% of screen height,
+            width: widt * 0.3,),
 
             const CircleAvatar(
               radius: 95,
@@ -62,11 +64,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
               ),
             ),
-            const SizedBox(
-              height: 0,
-              width: 100,
+             SizedBox(
+              height: heigh * 0.00008, //height to 9% of screen height,
+              width: widt * 0.03,
             ),
-             const Padding(
+               Padding(
               padding: EdgeInsets.all(80.0),
               child: Center(
                 child: Padding(
@@ -75,27 +77,24 @@ class _MyHomePageState extends State<MyHomePage> {
                     'WELCOME NITians!',
                     textAlign: TextAlign.center,
 
-                    style: TextStyle(
+                     style: GoogleFonts.macondo(
+                    textStyle: const TextStyle(
 
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontFamily: 'RobotoSlab',
-                      fontSize: 40,
+
+                      fontSize: 45,
                     ),
+                     ),
                   ),
                 ),
               ),
             ),
             /*const Image(image:
               AssetImage(''),),*/
-            const Divider(
-                color: Colors.white,
-              height: 10,
-              indent: 80,
-              endIndent: 80,
-            ),
-            const SizedBox(
-              height: 50,
+
+             SizedBox(
+              height: heigh*0.00008,
               width: 0,
             ),
             UnconstrainedBox(
@@ -103,10 +102,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 80,
                 width: 280,
                 child: ElevatedButton(
-                  onPressed:(
-                      ) {
-                    Navigator.of(context).pushNamed('/login');
-                  },
+                  onPressed:() =>
+                    Navigator.of(context).pushNamed('/login'),
+
                   style:
                   ElevatedButton.styleFrom(
                     side: const BorderSide(width:5, color: Color(0xFF2e5cb8)),

@@ -32,6 +32,7 @@ class FormPage extends StatelessWidget {
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);
 
+
   @override
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
 }
@@ -40,38 +41,28 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController oneController = TextEditingController();
   TextEditingController twoController = TextEditingController();
   TextEditingController threeController = TextEditingController();
-  bool _isLoading = false;
+  TextEditingController fourController = TextEditingController();
+  TextEditingController fiveController = TextEditingController();
 
+  bool _isLoading = false;
+  postData() async{
+    var res1= http.Client();
+    var response = http.post(Uri.parse("https://nith-portal22.herokuapp.com/api/v1/form"),
+        body: {
+        "name":oneController.text,
+        "purpose":twoController.text,
+        "branch":threeController.text,
+        "duration":fourController.text,
+        "roll":fiveController.text,
+        }
+    );
+
+  }
   @override
   Widget build(BuildContext context) {
-    stuDetail(String one,String two, String three) async {
-      SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-      Map data = {
-        'one': one,
-        'two': two,
-        'three' : three,
-      };
-      dynamic jsonResponse;
-      var response = await http.post(Uri.parse('https://nith-portal22.herokuapp.com/api/v1/student?search=') );
-      if(response.statusCode == 200) {
-        jsonResponse = json.decode(response.body);
-        if(jsonResponse != null) {
-          setState(() {
-            _isLoading = false;
-          });
-          sharedPreferences.setString("token", jsonResponse['token']);
 
-        }
-      }
-      else {
-        setState(() {
-          _isLoading = false;
-        });
-        if (kDebugMode) {
-          print(response.body);
-        }
-      }
-    }
+
+
     return Padding(
         padding: const EdgeInsets.all(10),
         child: ListView(
@@ -122,7 +113,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             Container(
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextFormField(
-                obscureText: true,
+
                 controller: twoController,
                 decoration: const InputDecoration(
 
@@ -139,8 +130,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             Container(
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextFormField(
-                obscureText: true,
-                controller: twoController,
+
+                controller: threeController,
                 decoration: const InputDecoration(
 
                   enabledBorder: OutlineInputBorder(
@@ -156,14 +147,31 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             Container(
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextFormField(
-                obscureText: true,
-                controller: twoController,
+
+                controller: fourController,
                 decoration: const InputDecoration(
 
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white, width: 2.0),
                   ),
                   labelText: 'INPUT 4',
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextFormField(
+
+                controller: fiveController,
+                decoration: const InputDecoration(
+
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white, width: 2.0),
+                  ),
+                  labelText: 'INPUT 5',
                   labelStyle: TextStyle(
                     color: Colors.white,
                   ),
@@ -183,12 +191,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: SizedBox(
                   height: 80,
                   width: 280,
-                  child: ElevatedButton( onPressed: oneController.text == "" || twoController.text == "" ? null : () {
-                    setState(() {
-                      _isLoading = true;
-                    });
-                    stuDetail(oneController.text, twoController.text, threeController.text);
-                  },
+                  child: ElevatedButton( onPressed:()=> postData(),
 
                     style:
                     ElevatedButton.styleFrom(
