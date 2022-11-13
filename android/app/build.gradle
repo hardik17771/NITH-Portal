@@ -77,7 +77,7 @@ subprojects {
     afterEvaluate {project ->
         if (project.hasProperty("android") && project.property("android").compileSdkVersion.equals("android-R")) {
             android {
-                compileSdkVersion 28
+                compileSdkVersion 33
             }
         }
     }

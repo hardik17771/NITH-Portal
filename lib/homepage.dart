@@ -21,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Container(
     decoration: const BoxDecoration(
     image: DecorationImage(
-        image: AssetImage('images/wp8732522.png'),
+        image: AssetImage('images/16351572_rm209-adj-20.jpg'),
     fit: BoxFit.cover,
     ),
     ),
@@ -46,91 +46,105 @@ class _MyHomePageState extends State<MyHomePage> {
       body:
 
       Center(
-        child: ListView(
-
-          children:
-          <Widget>[
-
-           SizedBox(
-            height: heigh * 0.01, //height to 9% of screen height,
-            width: widt * 0.3,),
-
-            const CircleAvatar(
-              radius: 95,
-              backgroundColor: Color(0xFF2e5cb8),
-              child:  CircleAvatar(
-               backgroundImage: AssetImage('images/main-qimg-e6996159b3fdbc3579503cfa4720c284-c.jpeg'),
-                radius: 90,
-
-              ),
+        child: SizedBox(
+          height: heigh * 0.76 ,
+          width: widt * 0.85 ,
+          child: Card(
+            shadowColor: Colors.black,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
             ),
-             SizedBox(
-              height: heigh * 0.00008, //height to 9% of screen height,
-              width: widt * 0.03,
-            ),
-               Padding(
-              padding: EdgeInsets.all(80.0),
-              child: Center(
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    'WELCOME NITians!',
-                    textAlign: TextAlign.center,
+            color: Colors.white60,
+            elevation: 10,
+            child: Center(
+              child: ListView(
 
-                     style: GoogleFonts.macondo(
-                    textStyle: const TextStyle(
+                children:
+                <Widget>[
 
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                 SizedBox(
+                  height: heigh * 0.05, //height to 9% of screen height,
+                  width: widt * 0.3,),
 
-                      fontSize: 45,
-                    ),
-                     ),
-                  ),
-                ),
-              ),
-            ),
-            /*const Image(image:
-              AssetImage(''),),*/
+                  const CircleAvatar(
+                    radius: 95,
+                    backgroundColor: Colors.blue,
+                    child:  CircleAvatar(
+                     backgroundImage: AssetImage('images/NIT-Hamirpur-Logo.webp'),
+                      radius: 93,
 
-             SizedBox(
-              height: heigh*0.00008,
-              width: 0,
-            ),
-            UnconstrainedBox(
-              child: SizedBox(
-                height: 80,
-                width: 280,
-                child: ElevatedButton(
-                  onPressed:() =>
-                    Navigator.of(context).pushNamed('/login'),
-
-                  style:
-                  ElevatedButton.styleFrom(
-                    side: const BorderSide(width:5, color: Color(0xFF2e5cb8)),
-                    primary: const Color(0xFF3399ff),
-                    shape: RoundedRectangleBorder(
-                      
-                      borderRadius: BorderRadius.circular(200),
                     ),
                   ),
-                  child: const Text('Get Started',
+                   SizedBox(
+                    height: heigh * 0.00008, //height to 9% of screen height,
+                    width: widt * 0.03,
+                  ),
+                     Padding(
+                    padding: EdgeInsets.all(62.0),
+                    child: Center(
+                      child: Padding(
+                        padding: EdgeInsets.all(3.0),
+                        child: Text(
+                          'Welcome!',
+                          textAlign: TextAlign.center,
 
-                    style: TextStyle(
+                           style: GoogleFonts.merriweather(
+                          textStyle: const TextStyle(
 
-                      fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+
+                            fontSize: 38,
+                          ),
+                           ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  /*const Image(image:
+                    AssetImage(''),),*/
+
+                   SizedBox(
+                    height: heigh*0.08,
+                    width: 0,
+                  ),
+                  UnconstrainedBox(
+                    child: SizedBox(
+                      height: 80,
+                      width: 240,
+                      child: ElevatedButton(
+                        onPressed:() =>
+                          Navigator.of(context).pushNamed('/login'),
+
+                        style:
+                        ElevatedButton.styleFrom(
+                          side: const BorderSide(width:5, color: Colors.blue),
+                          primary: const Color(0xFF5391BF),
+                          shape: RoundedRectangleBorder(
+
+                            borderRadius: BorderRadius.circular(200),
+                          ),
+                        ),
+                        child: const Text('Get Started',
+
+                          style: TextStyle(
+
+                            fontSize: 30,
 
 
-                    ),),
-                ),
+                          ),),
+                      ),
+                    ),
+                  ),
+              const SizedBox(
+                height: 50,
+                width: 280,),
+
+                ],
+
               ),
             ),
-        const SizedBox(
-          height: 50,
-          width: 280,),
-
-          ],
-
+          ),
         ),
       ),
      ),
