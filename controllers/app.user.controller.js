@@ -22,7 +22,7 @@ exports.postForm = async (req, res, next) => {
   const regex = new RegExp(escapeRegex(req.body.roll), "gi");
   const studentExists = await Student.findOne({ roll: regex });
 
-  if (studentExists.form) {
+  if (!studentExists.form) {
     const form = req.body;
     await Student.updateOne({ form: form });
     console.log(studentExists);
