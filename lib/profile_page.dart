@@ -174,55 +174,52 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
 
-                    Positioned(
-                      top: 150,
-                      child: Container(
-                        height: heigh * 0.5,
-                        width: widt,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.white,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text(
-                                'Fill An Outpass',
-                                  style: GoogleFonts.merriweather( textStyle: const TextStyle(
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 24),
-                                  ),
-                              ),
-                              Divider(
-                                thickness: 2.5,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Container(
-                                height: heigh * 0.15,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(30),
+                    Container(
+                      height: heigh * 0.5,
+                      width: widt,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              'Fill An Outpass',
+                                style: GoogleFonts.merriweather( textStyle: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 24),
                                 ),
+                            ),
+                            Divider(
+                              thickness: 2.5,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              height: heigh * 0.15,
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.circular(30),
                               ),
-                              SizedBox(
-                                height: 10,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              height: heigh * 0.15,
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.circular(30),
                               ),
-                              Container(
-                                height: heigh * 0.15,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     )
