@@ -55,7 +55,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     double heigh = MediaQuery.of(context).size.height;
     double widt = MediaQuery.of(context).size.width;
-    /*signIn(String email,String pass) async {
+    signIn(String email,String pass) async {
       SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
       Map data = {
         'email': email,
@@ -82,7 +82,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           print(response.body);
         }
       }
-    }*/
+    }
 
     return Center(
       child: SizedBox(
@@ -115,56 +115,57 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   ))),
                const Divider(
                 color: Colors.white,
-                height: 10,
-                indent: 80,
-                endIndent: 80,
-              ),
-              Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(30),
-                  child: const Text(
-                    'Login Form',
-                    style: TextStyle(fontSize: 25,
-                    fontWeight: FontWeight.w500,
+                height: 150,
 
-                    color: Colors.blue),
-                  )),
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: TextFormField(
-                  controller: emailController,
-
-                  decoration: const InputDecoration(
-
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 2.0),
-                    ),
-                    labelText: 'Institute Email',
-                    labelStyle: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
               ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                child: TextFormField(
-                  obscureText: true,
-                  controller: passwordController,
-                  decoration: const InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 2.0),
-                    ),
-                    labelText: 'Password',
-                    labelStyle: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+              Center(
+                child: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(30),
+                    child: const Text(
+                      'Login through Google   (Use Institute Email)',
+                      style: TextStyle(fontSize: 22,
+                      fontWeight: FontWeight.w500,
+
+                      color: Colors.blue),
+                    )),
               ),
+              // Container(
+              //   padding: const EdgeInsets.all(10),
+              //   child: TextFormField(
+              //     controller: emailController,
+              //
+              //     decoration: const InputDecoration(
+              //
+              //       enabledBorder: OutlineInputBorder(
+              //         borderSide: BorderSide(color: Colors.white, width: 2.0),
+              //       ),
+              //       labelText: 'Institute Email',
+              //       labelStyle: TextStyle(
+              //         color: Colors.white,
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // Container(
+              //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              //   child: TextFormField(
+              //     obscureText: true,
+              //     controller: passwordController,
+              //     decoration: const InputDecoration(
+              //       enabledBorder: OutlineInputBorder(
+              //         borderSide: BorderSide(color: Colors.white, width: 2.0),
+              //       ),
+              //       labelText: 'Password',
+              //       labelStyle: TextStyle(
+              //         color: Colors.white,
+              //       ),
+              //     ),
+              //   ),
+              // ),
 
               const SizedBox(
-                height: 80,
+                height: 60,
                 width: 60,
               ),
 
@@ -187,12 +188,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                          borderRadius: BorderRadius.circular(200),
                        ),
                      ),
-                     child: const Text('Login',
+                     child: const Text('Login Here',
 
                        style: TextStyle(
                          fontWeight: FontWeight.w500,
                          color: Colors.white,
-                         fontSize: 30,
+                         fontSize: 27,
 
 
                        ),),
@@ -208,35 +209,35 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 endIndent: 80,
               ),
 
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: UnconstrainedBox(
-                  child: SizedBox(
-                    height: 80,
-                    width: 240,
-                    child: ElevatedButton(
-                      onPressed:() =>
-                        Navigator.of(context).pushNamed('/form'),
-                      style:
-                      ElevatedButton.styleFrom(
-                        side: const BorderSide(width:3, color:Colors.blue),
-                        primary:  const Color(0xFF5391BF),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(200),
-                        ),
-                      ),
-                      child: const Text('Form',
-
-                        style: TextStyle(
-
-                          fontSize: 30,
-
-
-                        ),),
-                    ),
-                  ),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.all(20.0),
+              //   child: UnconstrainedBox(
+              //     child: SizedBox(
+              //       height: 80,
+              //       width: 240,
+              //       child: ElevatedButton(
+              //         onPressed:() =>
+              //           Navigator.of(context).pushNamed('/form'),
+              //         style:
+              //         ElevatedButton.styleFrom(
+              //           side: const BorderSide(width:3, color:Colors.blue),
+              //           primary:  const Color(0xFF5391BF),
+              //           shape: RoundedRectangleBorder(
+              //             borderRadius: BorderRadius.circular(200),
+              //           ),
+              //         ),
+              //         child: const Text('Form',
+              //
+              //           style: TextStyle(
+              //
+              //             fontSize: 30,
+              //
+              //
+              //           ),),
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           )),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nithh/profile_page.dart';
 import 'Formm.dart';
 import 'package:nithh/login_page.dart';
 import 'login_page.dart';
@@ -15,13 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const MyHomePage(),
+      home:  ProfileScreen(),
       routes: <String, WidgetBuilder>{
         '/home': (BuildContext context) => const MyApp(),
         '/login': (BuildContext context) => const LoginPage(),
         '/form' : (BuildContext context) => const FormPage(),
         '/logg' : (BuildContext context) => const WebViewApp(),
-
+        '/front': (BuildContext context) =>  ProfileScreen(),
       }
     );
   }

@@ -101,7 +101,7 @@ class _WebViewAppState extends State<WebViewApp> {
           (child: Text('Login Through Institute id'),),
       ),
       body: const WebView(
-        initialUrl: 'https://nith-portal22.herokuapp.com/google',
+        initialUrl: 'https:/nith-portal-11-qsje.onrender.com/google',
         javascriptMode: JavascriptMode.unrestricted,
         userAgent: 'random',
       ),
