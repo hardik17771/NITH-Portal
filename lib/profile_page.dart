@@ -32,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
           child: Scaffold(
             backgroundColor: Colors.transparent,
             body: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
                 child: Column(
@@ -62,8 +62,11 @@ class ProfileScreen extends StatelessWidget {
 
                       ),
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Container(
-                      height: heigh * 0.35,
+                      height: heigh * 0.33,
                       child: LayoutBuilder(
                         builder: (context, constraints) {
                           double innerHeight = constraints.maxHeight;
@@ -71,13 +74,14 @@ class ProfileScreen extends StatelessWidget {
                           return Stack(fit: StackFit.expand,
                             children: [
                               Positioned(
-                                bottom: 120,
+                                bottom:120,
                                 left: 0,
                                 right: 0,
+                                top: 0,
                                 child: Center(
                                   child: Container(
-                                    height: innerHeight * 0.52,
-                                    width: innerWidth,
+                                    height: heigh * 0.44,
+                                    width: widt,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(30),
                                       color: Colors.white,
@@ -85,7 +89,7 @@ class ProfileScreen extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         SizedBox(
-                                          height: 30,
+                                          height: 33,
                                         ),
                                         Text(
                                           'Hardik Sachdeva',
@@ -175,7 +179,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
 
                     Container(
-                      height: heigh * 0.5,
+                      height: heigh * 0.3,
                       width: widt,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
@@ -203,17 +207,17 @@ class ProfileScreen extends StatelessWidget {
                               height: 10,
                             ),
                             Container(
-                              height: heigh * 0.15,
+                              height: heigh * 0.09,
                               decoration: BoxDecoration(
                                 color: Colors.grey,
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
                             SizedBox(
-                              height: 10,
+                              height: 18,
                             ),
                             Container(
-                              height: heigh * 0.15,
+                              height: heigh * 0.09,
                               decoration: BoxDecoration(
                                 color: Colors.grey,
                                 borderRadius: BorderRadius.circular(30),
