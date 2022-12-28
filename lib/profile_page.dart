@@ -66,108 +66,101 @@ class ProfileScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Container(
-                      height: heigh * 0.33,
+                      height: heigh * 0.19,
                       child: LayoutBuilder(
-                        builder: (context, constraints) {
-                          double innerHeight = constraints.maxHeight;
-                          double innerWidth = constraints.maxWidth;
-                          return Stack(fit: StackFit.expand,
+                        builder: (BuildContext context, BoxConstraints viewportConstraints) {
+                          // double innerHeight = constraints.maxHeight;
+                          // double innerWidth = constraints.maxWidth;
+                          return Stack(
                             children: [
-                              Positioned(
-                                bottom:120,
-                                left: 0,
-                                right: 0,
-                                top: 0,
-                                child: Center(
-                                  child: Container(
-                                    height: heigh * 0.44,
-                                    width: widt,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30),
-                                      color: Colors.white,
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        SizedBox(
-                                          height: 33,
-                                        ),
-                                        Text(
-                                          'Hardik Sachdeva',
-                                          style: GoogleFonts.merriweather( textStyle: const TextStyle(
-                                        color: Colors.blue,
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 27),
-                                  )
-                                        ),
-                                        SizedBox(
-                                          height: 4,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                          children: [
-                                            Column(
-                                              children: [
-                                                Text(
-                                                  'Filled',
-                                                  style: TextStyle(
-                                                    color: Colors.grey[700],
-                                                    fontFamily: 'Nunito',
-                                                    fontSize: 25,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '10',
-                                                  style: TextStyle(
-                                                    color: Color.fromRGBO(
-                                                        39, 105, 171, 1),
-                                                    fontFamily: 'Nunito',
-                                                    fontSize: 25,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.symmetric(
-                                                horizontal: 25,
-                                                vertical: 8,
-                                              ),
-                                              child: Container(
-                                                height: 50,
-                                                width: 3,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                  BorderRadius.circular(100),
-                                                  color: Colors.grey,
-                                                ),
-                                              ),
-                                            ),
-                                            Column(
-                                              children: [
-                                                Text(
-                                                  'Pending',
-                                                  style: TextStyle(
-                                                    color: Colors.grey[700],
-                                                    fontFamily: 'Nunito',
-                                                    fontSize: 25,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '1',
-                                                  style: TextStyle(
-                                                    color: Color.fromRGBO(
-                                                        39, 105, 171, 1),
-                                                    fontFamily: 'Nunito',
-                                                    fontSize: 25,
-                                                  ),
-                                                ),
+                              Center(
+                                child: Container(
 
-                                              ],
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: Colors.white,
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 33,
+                                      ),
+                                      Text(
+                                        'Hardik Sachdeva',
+                                        style: GoogleFonts.merriweather( textStyle: const TextStyle(
+                                      color: Colors.blue,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 27),
+                                )
+                                      ),
+                                      SizedBox(
+                                        height: 4,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                        children: [
+                                          Column(
+                                            children: [
+                                              Text(
+                                                'Filled',
+                                                style: TextStyle(
+                                                  color: Colors.grey[700],
+                                                  fontFamily: 'Nunito',
+                                                  fontSize: 25,
+                                                ),
+                                              ),
+                                              Text(
+                                                '10',
+                                                style: TextStyle(
+                                                  color: Color.fromRGBO(
+                                                      39, 105, 171, 1),
+                                                  fontFamily: 'Nunito',
+                                                  fontSize: 25,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 25,
+                                              vertical: 8,
                                             ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
+                                            child: Container(
+                                              height: 50,
+                                              width: 3,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                BorderRadius.circular(100),
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                          ),
+                                          Column(
+                                            children: [
+                                              Text(
+                                                'Pending',
+                                                style: TextStyle(
+                                                  color: Colors.grey[700],
+                                                  fontFamily: 'Nunito',
+                                                  fontSize: 25,
+                                                ),
+                                              ),
+                                              Text(
+                                                '1',
+                                                style: TextStyle(
+                                                  color: Color.fromRGBO(
+                                                      39, 105, 171, 1),
+                                                  fontFamily: 'Nunito',
+                                                  fontSize: 25,
+                                                ),
+                                              ),
+
+                                            ],
+                                          ),
+                                        ],
+                                      )
+                                    ],
                                   ),
                                 ),
                               ),
@@ -177,9 +170,12 @@ class ProfileScreen extends StatelessWidget {
                         },
                       ),
                     ),
-
+                    SizedBox(
+                      height:
+                        10,
+                    ),
                     Container(
-                      height: heigh * 0.3,
+                      height: heigh * 0.33,
                       width: widt,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
