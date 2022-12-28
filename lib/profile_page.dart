@@ -83,7 +83,7 @@ class ProfileScreen extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       SizedBox(
-                                        height: 33,
+                                        height: 25,
                                       ),
                                       Text(
                                         'Hardik Sachdeva',
@@ -94,7 +94,7 @@ class ProfileScreen extends StatelessWidget {
                                 )
                                       ),
                                       SizedBox(
-                                        height: 4,
+                                        height: 15,
                                       ),
                                       Row(
                                         mainAxisAlignment:
@@ -172,10 +172,10 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     SizedBox(
                       height:
-                        10,
+                        19,
                     ),
                     Container(
-                      height: heigh * 0.33,
+                      height: heigh * 0.28,
                       width: widt,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
@@ -203,9 +203,10 @@ class ProfileScreen extends StatelessWidget {
                               height: 10,
                             ),
                             Container(
-                              height: heigh * 0.09,
+                              height: heigh * 0.07,
+                              width: widt*0.5,
                               decoration: BoxDecoration(
-                                color: Colors.grey,
+                                color: Color(0xffD0D6D9),
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
@@ -213,12 +214,14 @@ class ProfileScreen extends StatelessWidget {
                               height: 18,
                             ),
                             Container(
-                              height: heigh * 0.09,
+                              height: heigh * 0.07,
+                              width: widt*0.5,
                               decoration: BoxDecoration(
-                                color: Colors.grey,
+                                color: Color(0xffD0D6D9),
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
+
                           ],
                         ),
                       ),
