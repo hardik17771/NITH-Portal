@@ -6,11 +6,8 @@ const StudentSchema = new Schema({
   mail_id: String,
   roll: String,
   form: {
-    name: String,
-    purpose: String,
-    branch: String,
-    duration: String,
-    roll: String,
+    type: Schema.Types.ObjectId,
+    ref: "Form",
   },
 });
 

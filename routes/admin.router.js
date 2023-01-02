@@ -4,20 +4,18 @@ const adminController = require("../controllers/admin.controller");
 
 const router = express.Router();
 
-//courses
 router.get("/forms", adminController.getForms);
 
 router.get("/forms/new", adminController.newForm);
 
 router.post("/forms", adminController.PostnewForm);
+//for editing
+router.get("/forms/:id", adminController.getAForm);
 
-//courses editing
-router.get("/forms/:id", adminController.getAcourse);
+router.get("/forms/:id/edit", adminController.editForm);
 
-router.get("/forms/:id/edit", adminController.editCourse);
+router.put("/forms/:id", adminController.patchForm);
 
-router.put("/forms/:id", adminController.patchCourse);
-
-router.delete("/forms/:id", adminController.deleteCourse);
+router.delete("/forms/:id", adminController.deleteForm);
 
 module.exports = router;
