@@ -327,3 +327,29 @@ div.btn {
     opacity: 0;
   }
 }
+.wrapper {
+  width: 1600px;
+  height: 30px;
+  margin: auto;
+  border: 4px solid #d9531d;
+  overflow-x: hidden;
+}
+
+.target {
+  font-weight: bold;
+  color: #fbfbfb;
+  animation-name: rightToLeft;
+  animation-duration: 11s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* animation: rightToLeft 4.5s linear infinite; */
+}
+
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(1900px);
+  }
+  100% {
+    transform: translateX(-100px);
+  }
+}

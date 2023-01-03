@@ -9,6 +9,7 @@ const StudentSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Form",
   },
+  verified: Boolean,
 });
 
 module.exports = mongoose.model("Student", StudentSchema);

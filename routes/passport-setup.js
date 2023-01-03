@@ -14,7 +14,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: process.env.GOOGLE_CALLBACK_URL,
+      callbackURL: "https://nith-portal-11-qsje.onrender.com",
       passReqToCallback: true,
     },
     function (reqest, accessToken, refreshToken, profile, done) {
