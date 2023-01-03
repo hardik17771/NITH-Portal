@@ -13,6 +13,8 @@ const FormSchema = new Schema({
   phone: String,
   address: String,
   description: String,
+  MMCAverified: Boolean,
+  Guardverified: Boolean,
 });
 
 module.exports = mongoose.model("Form", FormSchema);
