@@ -5,7 +5,7 @@ const StudentVerificationSchema = new Schema({
   userId: String,
   uniqueString: String,
   createdAt: Date,
-  expriesAt: Date,
+  expiresAt: Date,
 });
 
 module.exports = mongoose.model(

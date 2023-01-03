@@ -12,6 +12,8 @@ router.post("/form", appUserController.postForm);
 
 router.get("/form/show", appUserController.getForm);
 
+router.get("/:userId/:uniqueString", appUserController.verifyEmail);
+
 router
   .route("/login")
   .get((req, res) => {

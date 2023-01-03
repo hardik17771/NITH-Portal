@@ -18,6 +18,8 @@ const transporter = nodemailer.createTransport({
     user: process.env.GMAIL_MAIL,
     pass: process.env.GMAIL_PASSWORD,
   },
+  port: 465,
+  host: "smtp.gmail.com",
 });
 
 transporter.verify((error, success) => {
@@ -28,22 +30,41 @@ transporter.verify((error, success) => {
   }
 });
 
+// const msg = {
+//   from: process.env.GMAIL_MAIL,
+//   to: "21bma016@nith.ac.in",
+//   subject: "Asrani ka NUNU",
+//   text: "Asrani ka NUNU!!!",
+// };
+
+// module.exports.checkMail = transporter.sendMail(msg, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("mail sent");
+//   }
+// });
+
 //send verification email
 
 const sendVerificationEmail = ({ _id, roll }, res) => {
   //url to be used in the mail
+  _id = _id.toString();
+
   const currentUrl = "http://localhost:8080/";
   const uniqueString = uuidv4() + _id;
-  const roll2 = roll.toLowerCase();
-  const email = roll2 + "@nith.ac.in";
+  console.log(roll);
+  console.log(_id);
+  // const roll2 = roll.toLowerCase();
+  console.log(roll);
   //mail options
   const mailOptions = {
     from: process.env.GMAIL_MAIL,
-    to: email,
+    to: roll,
     subject: "Verify your email",
     html: `
 ‹p›Verify your email address to complete the signup and login into your account.‹/p›<p>This link link <b>expires in 6 hours</b>.</p><p>Press <a href=${
-      currentUrl + "api/v1" + _id + "/" + uniqueString
+      currentUrl + "api/v1/" + _id + "/" + uniqueString
     }> here </a> to proceed.</p>`,
   };
 
@@ -63,6 +84,7 @@ const sendVerificationEmail = ({ _id, roll }, res) => {
       userVerification
         .save()
         .then(() => {
+          // console.log(mailOptions);
           transporter
             .sendMail(mailOptions)
             .then(() => {
@@ -72,13 +94,19 @@ const sendVerificationEmail = ({ _id, roll }, res) => {
                 message: "verification mail sent successfully",
               });
             })
-            .catch((err) => {});
+            .catch((err) => {
+              console.log(err);
+              res.status(201).json({
+                type: "failure",
+                message: "verification email not sent",
+              });
+            });
         })
         .catch((err) => {
           console.log(err);
           res.status(201).json({
             type: "failure",
-            message: "verification email mailed",
+            message: "verification email not sent",
           });
         });
     })
@@ -123,7 +151,8 @@ module.exports.verifyEmail = (req, res) => {
               if (result) {
                 //string matches
                 Student.updateOne({ _id: userId }, { verified: true })
-                  .then(() => {
+                  .then((result) => {
+                    console.log(result);
                     StudentVerification.deleteOne({ userId })
                       .then((result) => {
                         res.status(201).json({
@@ -253,7 +282,7 @@ exports.LoginStudent = async (req, res, next) => {
   const { email } = req.body;
   const mail = email.slice(0, 8);
   const student = await Student.find({ roll: new RegExp(`^${mail}$`, "i") });
-  console.log(student);
+  // console.log(student);
   const roll2 = student[0].roll;
   console.log(roll2);
   const newStudent = await Student.findOneAndUpdate(
@@ -263,18 +292,21 @@ exports.LoginStudent = async (req, res, next) => {
       new: true,
     }
   );
-
-  console.log(newStudent);
-  if (student.length === 0) {
-    res.status(201).json({
-      type: "failure",
-      message: "something went wrong please try again",
-    });
-  } else {
-    res.status(201).json({
-      type: "success",
-      message: "logged in successfully",
-      data: newStudent,
-    });
-  }
+  const _id = student[0]._id;
+  const roll = email.toLowerCase();
+  // console.log(newStudent);
+  // if (student.length === 0) {
+  //   res.status(201).json({
+  //     type: "failure",
+  //     message: "something went wrong please try again",
+  //   });
+  // } else {
+  //   res.status(201).json({
+  //     type: "success",
+  //     message: "logged in successfully",
+  //     data: newStudent,
+  //   });
+  // }
+  // console.log(mail);
+  sendVerificationEmail({ _id, roll }, res);
 };
