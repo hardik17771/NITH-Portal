@@ -51,7 +51,7 @@ const sendVerificationEmail = ({ _id, roll }, res) => {
   //url to be used in the mail
   _id = _id.toString();
 
-  const currentUrl = "http://localhost:8080/";
+  const currentUrl = "https://nith-portal-11-qsje.onrender.com/";
   const uniqueString = uuidv4() + _id;
   console.log(roll);
   console.log(_id);
