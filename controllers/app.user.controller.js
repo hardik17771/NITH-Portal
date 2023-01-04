@@ -220,36 +220,86 @@ exports.getStudents = async (req, res, next) => {
 };
 
 exports.postForm = async (req, res, next) => {
-  let { Name, Department, RoomNum, phone, address, description } = req.body;
+  let { Name, Department, RoomNum, phone, address, description, roll } =
+    req.body;
+  userId = req.params;
+  const id = userId.id;
+  console.log(userId);
+  console.log(id);
 
   // const regex = new RegExp(escapeRegex(req.body.roll), "gi");
+  // console.log(first);
+
   const form = new Form({
     Name: Name,
+    roll: roll,
     Department: Department,
     RoomNum: RoomNum,
     phone: phone,
     address: address,
     description: description,
   });
-  await form
-    .save()
-    .then((result) => {
-      console.log(result);
 
-      res.status(201).json({
-        type: "success",
-        message: "form submitted successfully",
-        data: result,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
+  const student = await Student.findById(id);
+  await form.save().then(async (result) => {
+    console.log(result);
+    if (student.form === undefined) {
+      student.form = form._id;
+
+      await student
+        .save()
+        .then(async (result) => {
+          form.student = id;
+          await form
+            .updateOne({ student: id })
+            .then(async (result) => {
+              console.log(result);
+
+              res.status(201).json({
+                type: "success",
+                message: "form submitted successfully",
+                data: result,
+              });
+            })
+            .catch((err) => {
+              console.log(err);
+              res.status(201).json({
+                type: "failure",
+                message: "System error",
+              });
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(201).json({
+            type: "failure",
+            message: "System error",
+          });
+        });
+
+      console.log(student.form);
+    } else {
       res.status(201).json({
         type: "failure",
-        message: "form is not submitted",
+        message: "form is already  submitted",
       });
-    });
-  console.log(form);
+    }
+  });
+
+  //   .then((result) => {
+  //     console.log(result);
+
+  // res.status(201).json({
+  //   type: "success",
+  //   message: "form submitted successfully",
+  //   data: result,
+  // });
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+
+  //   });
+  // console.log(form);
 
   // if (!studentExists.form) {
   //   const form = req.body;
@@ -310,3 +360,75 @@ exports.LoginStudent = async (req, res, next) => {
   // console.log(mail);
   sendVerificationEmail({ _id, roll }, res);
 };
+
+exports.mmcaVerify = async (req, res, next) => {
+  formId = req.params;
+  const id = formId.formId;
+  console.log(formId);
+  console.log(id);
+
+  Form.findOneAndUpdate({ id }, { mmcaVerified: true }, { new: true })
+    .then((result) => {
+      res.status(401).json({
+        type: "success",
+        message: " mmca has verified your form",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+exports.guardVerify = async (req, res, next) => {
+  formId = req.params;
+  const id = formId.formId;
+  console.log(formId);
+  console.log(id);
+
+  Form.findOneAndUpdate({ id }, { guardVerified: true }, { new: true })
+
+    .update({ guardVerified: true })
+    .then((result) => {
+      res.status(401).json({
+        type: "success",
+        message: "guard has verified your form",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+exports.guardVerifyReturn = async (req, res, next) => {
+  formId = req.params;
+  const id = formId.formId;
+  console.log(formId);
+  console.log(id);
+  const form = await Form.findById(id);
+  console.log(form.student);
+  studentId = form.student;
+  const student = await Student.findOneAndUpdate(
+    { _id: studentId },
+    { $unset: { form: 1 } }
+  );
+
+  Form.findOneAndDelete({ id })
+    .then((result) => {
+      res.status(401).json({
+        type: "success",
+        message: "You have successfully returned",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+// const rental = await Rental.findById(req.params.id)
+//     .populate({
+//       path: "reviews",
+//       populate: {
+//         path: "author",
+//       },
+//     })
+//     .populate("author");

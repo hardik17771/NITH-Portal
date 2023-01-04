@@ -10,11 +10,18 @@ const FormSchema = new Schema({
   Name: String,
   Department: String,
   RoomNum: String,
+  roll: String,
   phone: String,
   address: String,
   description: String,
-  MMCAverified: Boolean,
-  Guardverified: Boolean,
+  student: {
+    type: Schema.Types.ObjectId,
+    ref: "Student",
+  },
+  mmcaVerified: { type: Boolean, default: false },
+  guardVerified: { type: Boolean, default: false },
+  createdAt: { type: Date, default: Date.now() },
+  expiresAt: { type: Date, default: Date.now() + 21600000 },
 });
 
 module.exports = mongoose.model("Form", FormSchema);

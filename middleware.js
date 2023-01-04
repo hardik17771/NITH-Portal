@@ -1,13 +1,48 @@
+const student = require("./models/student");
 const Student = require("./models/student");
 
-module.exports.isLoggedIn = (req, res, next) => {
-  if (!req.isAuthenticated()) {
-    req.session = null;
-
-    res.status(201).json({
-      type: "failure",
-      message: "form is already submitted",
+module.exports.isLoggedIn = async (req, res, next) => {
+  const { email } = req.body;
+  const mail = email.slice(0, 8);
+  Student.find({ roll: new RegExp(`^${mail}$`, "i") })
+    .then((result) => {
+      console.log(result);
+      if (result.verified === true) {
+        res.status(401).json({
+          type: "success",
+          message: "You are  logged in",
+          data: result,
+        });
+      } else {
+        console.log(result);
+        res.status(401).json({
+          type: "failure",
+          message: "You are not logged in",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  }
-  next();
+};
+
+module.exports.isLoggedOut = async (req, res, next) => {
+  userId = req.params;
+  const id = userId.userId;
+  console.log(userId);
+  console.log(id);
+
+  const student = await Student.findById(id);
+
+  student
+    .update({ verified: false })
+    .then((result) => {
+      res.status(401).json({
+        type: "success",
+        message: "You are  logged out successfully",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
