@@ -18,6 +18,7 @@ const seedDB = async () => {
     const c = new Student({
       name: `${students[i].name}`,
       roll: `${students[i].roll}`,
+      verified: false,
     });
 
     await c.save();

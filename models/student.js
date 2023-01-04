@@ -10,6 +10,8 @@ const StudentSchema = new Schema({
     ref: "Form",
   },
   verified: Boolean,
+  mmcaVerified: Boolean,
+  guardVerified: Boolean,
 });
 
 module.exports = mongoose.model("Student", StudentSchema);
