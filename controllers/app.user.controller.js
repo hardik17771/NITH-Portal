@@ -63,7 +63,7 @@ const sendVerificationEmail = ({ _id, roll }, res) => {
     to: roll,
     subject: "Verify your email",
     html: `
-‹p›Verify your email address to complete the signup and login into your account.‹/p›<p>This link link <b>expires in 6 hours</b>.</p><p>Press <a href=${
+Verify your email address to complete the signup and login into your account.<p>This link link <b>expires in 6 hours</b>.</p><p>Press <a href=${
       currentUrl + "api/v1/verify/" + _id + "/" + uniqueString
     }> here </a> to proceed.</p>`,
   };
@@ -156,10 +156,11 @@ module.exports.verifyEmail = (req, res) => {
                     console.log(result);
                     StudentVerification.deleteOne({ userId })
                       .then((result) => {
-                        res.status(201).json({
-                          type: "success",
-                          message: "login successful",
-                        });
+                        res.render("verify");
+                        // res.status(201).json({
+                        //   type: "success",
+                        //   message: "login successful",
+                        // });
                       })
                       .catch((err) => {
                         console.log(err);
@@ -368,12 +369,38 @@ exports.mmcaVerify = async (req, res, next) => {
   console.log(formId);
   console.log(id);
 
-  Form.findOneAndUpdate({ id }, { mmcaVerified: true }, { new: true })
+  Form.findByIdAndUpdate(id, { mmcaVerified: true })
     .then((result) => {
-      res.status(401).json({
-        type: "success",
-        message: " mmca has verified your form",
-      });
+      console.log(result);
+      const address = result.address;
+      const name = result.Name;
+      const email = result.roll + "@nith.ac.in";
+      const mailOptions = {
+        from: process.env.GMAIL_MAIL,
+        to: email,
+        subject: "MMCA has verified your outpass",
+        html: `
+    Dear ${name} outpass with the request to go to <b>${address}</b> has been approved .Please show this message to respective authorites at gate for further proceedings`,
+      };
+      console.log(mailOptions);
+
+      transporter
+        .sendMail(mailOptions)
+        .then(() => {
+          //email sent and verification saved
+          console.log("first");
+          res.status(201).json({
+            type: "success",
+            message: "mmca has approved the form",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(201).json({
+            type: "failure",
+            message: "verification email not sent",
+          });
+        });
     })
     .catch((err) => {
       console.log(err);
@@ -386,9 +413,8 @@ exports.guardVerify = async (req, res, next) => {
   console.log(formId);
   console.log(id);
 
-  Form.findOneAndUpdate({ id }, { guardVerified: true }, { new: true })
+  Form.findByIdAndUpdate(id, { guardVerified: true })
 
-    .update({ guardVerified: true })
     .then((result) => {
       res.status(401).json({
         type: "success",

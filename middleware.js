@@ -8,8 +8,8 @@ module.exports.isLoggedIn = async (req, res, next) => {
   Student.find({ roll: new RegExp(`^${mail}$`, "i") })
     .then((result) => {
       console.log(result);
-      if (result.verified === true) {
-        console.log(here);
+      if (result[0].verified === true) {
+        console.log("here");
         res.status(401).json({
           type: "success",
           message: "You are  logged in",
