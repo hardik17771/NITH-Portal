@@ -42,9 +42,9 @@ app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/admin", adminRoutes);
-app.use("/user", formRoutes);
-app.use("/", authRoutes);
+// app.use("/admin", adminRoutes);
+// // app.use("/user", formRoutes);
+// app.use("/", authRoutes);
 app.use("/api/v1", userRoutes);
 
 app.all("*", (req, res, next) => {

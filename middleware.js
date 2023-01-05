@@ -4,21 +4,20 @@ const Student = require("./models/student");
 module.exports.isLoggedIn = async (req, res, next) => {
   const { email } = req.body;
   const mail = email.slice(0, 8);
+  console.log(mail);
   Student.find({ roll: new RegExp(`^${mail}$`, "i") })
     .then((result) => {
       console.log(result);
       if (result.verified === true) {
+        console.log(here);
         res.status(401).json({
           type: "success",
           message: "You are  logged in",
           data: result,
         });
       } else {
-        console.log(result);
-        res.status(401).json({
-          type: "failure",
-          message: "You are not logged in",
-        });
+        console.log("here");
+        next();
       }
     })
     .catch((err) => {

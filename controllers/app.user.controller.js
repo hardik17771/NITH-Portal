@@ -64,7 +64,7 @@ const sendVerificationEmail = ({ _id, roll }, res) => {
     subject: "Verify your email",
     html: `
 ‹p›Verify your email address to complete the signup and login into your account.‹/p›<p>This link link <b>expires in 6 hours</b>.</p><p>Press <a href=${
-      currentUrl + "api/v1/" + _id + "/" + uniqueString
+      currentUrl + "api/v1/verify/" + _id + "/" + uniqueString
     }> here </a> to proceed.</p>`,
   };
 
@@ -123,6 +123,7 @@ const sendVerificationEmail = ({ _id, roll }, res) => {
 
 module.exports.verifyEmail = (req, res) => {
   let { userId, uniqueString } = req.params;
+  console.log(userId, uniqueString);
   StudentVerification.find({ userId })
     .then((result) => {
       if (result.length > 0) {
