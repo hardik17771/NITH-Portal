@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nithh/apicheck2.dart';
 import 'package:nithh/profile_page.dart';
 import 'Formm.dart';
 import 'package:nithh/login_page.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/form' : (BuildContext context) => const FormPage(),
         '/logg' : (BuildContext context) => const WebViewApp(),
         '/front': (BuildContext context) =>  ProfileScreen(),
+        '/next': (BuildContext context) =>  const NowWebViewApp(),
       }
     );
   }

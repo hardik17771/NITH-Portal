@@ -114,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 240,
                       child: ElevatedButton(
                         onPressed:() =>
-                          Navigator.of(context).pushNamed('/login'),
+                          Navigator.of(context).pushNamed('/next'),
 
                         style:
                         ElevatedButton.styleFrom(
