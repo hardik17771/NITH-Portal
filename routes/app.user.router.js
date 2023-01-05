@@ -7,7 +7,9 @@ const router = express.Router();
 router.use(express.static(path.join(__dirname, "../public")));
 
 router.get("/student", appUserController.getStudents);
-
+router.route("/verify").get((req, res) => {
+  res.render("verify");
+});
 router
   .route("/login")
   .get((req, res) => {
