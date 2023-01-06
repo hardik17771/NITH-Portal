@@ -24,14 +24,18 @@ class _EnterMail extends State<EnterMail> {
         });
 
   }
-   Future<String> getData1() async {
-
-    http.Response response2 =await http.get(
-        Uri.parse("https://nith-portal-11-qsje.onrender.com/api/v1/login"));
-
-   var veri= response2.data
-     return veri;
-    }
+  // getData1() async {
+  //   var res1 = http.Client();
+  //   postData();
+  //    response2 = http.post(
+  //       Uri.parse("https://nith-portal-11-qsje.onrender.com/api/v1/login"),
+  //       body: {
+  //         'email': oneController.text,
+  //       });
+  //   String data=response2.
+  //   var deco = json.decode(data);
+  //   var id= deco["type"];
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -135,15 +139,15 @@ class _EnterMail extends State<EnterMail> {
                           width: widt * 0.5,
                           child: ElevatedButton(
                             onPressed: () {
-                              getData1();
-                              if(getData1() == "success")
-                                {
-                                  Navigator.of(context).pushNamed('/front');
-                                }
-                              else if(getData1()=="PENDING"){
+
+                              // if(getData1() == "success")
+                              //   {
+                              //     Navigator.of(context).pushNamed('/front');
+                              //   }
+                              // else if(getData1()=="PENDING"){
                               postData();
                               Navigator.of(context).pushNamed('/verify');
-                              }},
+                              },
                             style: ElevatedButton.styleFrom(
                               side: const BorderSide(
                                   width: 5, color: Colors.blue),
