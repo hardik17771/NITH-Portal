@@ -278,8 +278,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     child: SizedBox(
                       height: 70,
                       width: 200,
-                      child: ElevatedButton( onPressed:()=> posttData(),
-
+                      child: ElevatedButton( onPressed:()=>
+                      { posttData(),
+                        Navigator.of(context).pushNamed('/final'),},
                         style: ElevatedButton.styleFrom(
                           side: const BorderSide(
                               width: 5, color: Colors.blue),
