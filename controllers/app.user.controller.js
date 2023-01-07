@@ -278,7 +278,7 @@ exports.postForm = async (req, res, next) => {
             message: "System error",
           });
         });
-
+ 
       console.log(student.form);
     } else {
       res.status(201).json({
@@ -380,7 +380,7 @@ exports.mmcaVerify = async (req, res, next) => {
         to: email,
         subject: "MMCA has verified your outpass",
         html: `
-    Dear ${name} outpass with the request to go to <b>${address}</b> has been approved .Please show this message to respective authorites at gate for further proceedings`,
+    Dear ${name} your outpass with the request to go to <b>${address}</b> has been approved .Please show this message to respective authorites at gate for further proceedings`,
       };
       console.log(mailOptions);
 
@@ -439,7 +439,7 @@ exports.guardVerifyReturn = async (req, res, next) => {
     { $unset: { form: 1 } }
   );
 
-  Form.findOneAndDelete({ id })
+  Form.findByIdAndDelete(id)
     .then((result) => {
       res.status(401).json({
         type: "success",
@@ -451,11 +451,64 @@ exports.guardVerifyReturn = async (req, res, next) => {
     });
 };
 
-// const rental = await Rental.findById(req.params.id)
-//     .populate({
-//       path: "reviews",
-//       populate: {
-//         path: "author",
-//       },
-//     })
-//     .populate("author");
+exports.mmcaDeny = async (req, res, next) => {
+  formId = req.params;
+  const id = formId.formId;
+  console.log(formId);
+  console.log(id);
+
+  Form.findByIdAndUpdate(id, { mmcaVerified: false })
+    .then((result) => {
+      console.log(result);
+      const address = result.address;
+      const name = result.Name;
+      const email = result.roll + "@nith.ac.in";
+      const mailOptions = {
+        from: process.env.GMAIL_MAIL,
+        to: email,
+        subject: "MMCA has declined your outpass",
+        html: `
+    Dear ${name} outpass with the request to go to <b>${address}</b> has been Denied .Please contact MMCA for more information`,
+      };
+      console.log(mailOptions);
+
+      transporter
+        .sendMail(mailOptions)
+        .then(() => {
+          //email sent and verification saved
+          console.log("first");
+          res.status(201).json({
+            type: "success",
+            message: "mmca has denied the form",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(201).json({
+            type: "failure",
+            message: "denial email not sent",
+          });
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+exports.mmcaDenyButton = async (req, res, next) => {
+  formId = req.params;
+  const id = formId.formId;
+  console.log(formId);
+  console.log(id);
+
+  Form.findByIdAndUpdate(id, { mmcaVerified: false })
+    .then((result) => {
+      res.status(201).json({
+        type: "success",
+        message: "form denied successfully",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
