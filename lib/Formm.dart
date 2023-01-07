@@ -45,9 +45,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController fiveController = TextEditingController();
 
   bool _isLoading = false;
-  postData() async{
-    var res1= http.Client();
-    var response = http.post(Uri.parse("https://nith-portal22.herokuapp.com/api/v1/form"),
+  posttData() async{
+    var res3= http.Client();
+    var response3 = http.post(Uri.parse("https://nith-portal22.herokuapp.com/api/v1/form"),
         body: {
         "name":oneController.text,
         "purpose":twoController.text,
@@ -191,7 +191,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: SizedBox(
                   height: 80,
                   width: 280,
-                  child: ElevatedButton( onPressed:()=> postData(),
+                  child: ElevatedButton( onPressed:()=> posttData(),
 
                     style:
                     ElevatedButton.styleFrom(

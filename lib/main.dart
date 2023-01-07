@@ -5,6 +5,7 @@ import 'package:nithh/profile_page.dart';
 import 'package:nithh/verify.dart';
 import 'Formm.dart';
 import 'package:nithh/login_page.dart';
+import 'formmhome.dart';
 import 'login_page.dart';
 import 'homepage.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/home': (BuildContext context) => const MyApp(),
         '/login': (BuildContext context) => const LoginPage(),
-        '/form' : (BuildContext context) => const FormPage(),
+        '/formmarket' : (BuildContext context) => const FormPage(),
+        '/formhome' : (BuildContext context) => const FormHomePage(),
         '/logg' : (BuildContext context) => const WebViewApp(),
         '/front': (BuildContext context) =>  ProfileScreen(),
         '/next': (BuildContext context) =>  const NowWebViewApp(),

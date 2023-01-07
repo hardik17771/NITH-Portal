@@ -249,25 +249,69 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Container(
-                                          height: heigh * 0.07,
-                                          width: widt * 0.5,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xffD0D6D9),
-                                            borderRadius:
-                                                BorderRadius.circular(30),
+                                        Center(
+                                          child: UnconstrainedBox(
+                                            child: SizedBox(
+                                              height: heigh * 0.07,
+                                              width: widt * 0.55,
+                                              child: ElevatedButton(
+                                                onPressed: () async {
+                                                  Navigator.of(context)
+                                                      .pushNamed('/formmarket');
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  // side: const BorderSide(
+                                                  //     width: 5, color: Colors.blue),
+                                                  primary:
+                                                      const Color(0xFFD0D6D9),
+                                                  // shape: RoundedRectangleBorder(
+                                                  //   borderRadius: BorderRadius.circular(200),
+                                                  // ),
+                                                ),
+                                                child: const Text(
+                                                  'Outpass Form For Market',
+                                                  style: TextStyle(
+                                                    fontSize: 20,
+                                                    color:  Color(0xFF2F2F30
+
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                         SizedBox(
                                           height: 18,
                                         ),
-                                        Container(
-                                          height: heigh * 0.07,
-                                          width: widt * 0.5,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xffD0D6D9),
-                                            borderRadius:
-                                                BorderRadius.circular(30),
+                                        UnconstrainedBox(
+                                          child: SizedBox(
+                                            height: heigh * 0.07,
+                                            width: widt * 0.55,
+                                            child: ElevatedButton(
+                                              onPressed: () async {
+                                                Navigator.of(context)
+                                                    .pushNamed('/formhome');
+                                              },
+                                              style: ElevatedButton.styleFrom(
+                                                // side: const BorderSide(
+                                                //     width: 5, color: Colors.blue),
+                                                primary:
+                                                    const Color(0xFFD0D6D9),
+                                                // shape: RoundedRectangleBorder(
+                                                //   borderRadius: BorderRadius.circular(200),
+                                                // ),
+                                              ),
+                                              child: const Text(
+                                                'Outpass Form For Home',
+                                                style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Color(0xFF2F2F30
+
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ],
