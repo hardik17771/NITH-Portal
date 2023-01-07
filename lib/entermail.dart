@@ -4,7 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
-
+TextEditingController oneController = TextEditingController();
+// class Album {
+//
+//   final String verify;
+//
+//   const Album({required this.verify});
+//
+//   factory Album.fromJson(Map<String, dynamic> json) {
+//     return Album(
+//       verify: json['type'],
+//
+//     );
+//   }
+// }
 class EnterMail extends StatefulWidget {
   const EnterMail({Key? key}) : super(key: key);
 
@@ -13,29 +26,21 @@ class EnterMail extends StatefulWidget {
 }
 
 class _EnterMail extends State<EnterMail> {
-  TextEditingController oneController = TextEditingController();
+
   bool _isLoading = false;
-  postData() async {
+
+  Future<String> postData() async {
     var res1 = http.Client();
-    var response = http.post(
+    var response = await http.post(
         Uri.parse("https://nith-portal-11-qsje.onrender.com/api/v1/login"),
         body: {
           'email': oneController.text,
         });
-
+    var decode = json.decode(response.body.toString());
+    var verify = decode["type"];
+    print(verify);
+    return verify;
   }
-  // getData1() async {
-  //   var res1 = http.Client();
-  //   postData();
-  //    response2 = http.post(
-  //       Uri.parse("https://nith-portal-11-qsje.onrender.com/api/v1/login"),
-  //       body: {
-  //         'email': oneController.text,
-  //       });
-  //   String data=response2.
-  //   var deco = json.decode(data);
-  //   var id= deco["type"];
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -138,16 +143,13 @@ class _EnterMail extends State<EnterMail> {
                           height: heigh * 0.09,
                           width: widt * 0.5,
                           child: ElevatedButton(
-                            onPressed: () {
-
-                              // if(getData1() == "success")
-                              //   {
-                              //     Navigator.of(context).pushNamed('/front');
-                              //   }
-                              // else if(getData1()=="PENDING"){
-                              postData();
-                              Navigator.of(context).pushNamed('/verify');
-                              },
+                            onPressed: () async {
+                              if (await postData() == 'success') {
+                                Navigator.of(context).pushNamed('/front');
+                              } else if (await postData() == 'PENDING') {
+                                Navigator.of(context).pushNamed('/verify');
+                              }
+                            },
                             style: ElevatedButton.styleFrom(
                               side: const BorderSide(
                                   width: 5, color: Colors.blue),

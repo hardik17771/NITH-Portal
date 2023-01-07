@@ -2,10 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:nithh/homepage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'entermail.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+//   bool _isLoading = false;
+//   String name = "";
+//   _ProfileScreenState() {
+//     useData().then((val) => setState(() {
+//       name = val;
+//     }));
+//   }
+  Future<String> useData() async {
+
+    var res1 = http.Client();
+    var response = await http.post(
+        Uri.parse("https://nith-portal-11-qsje.onrender.com/api/v1/login"),
+        body: {
+          'email': oneController.text,
+        });
+    var decode = json.decode(response.body.toString());
+    var name = decode["data"]["name"];
+    print(name);
+    return name;
+  }
+
   @override
   Widget build(BuildContext context) {
+
     double widt = MediaQuery.of(context).size.width;
     double heigh = MediaQuery.of(context).size.height;
     return Stack(
@@ -85,12 +115,12 @@ class ProfileScreen extends StatelessWidget {
                                       SizedBox(
                                         height: 25,
                                       ),
-                                      Text(
-                                        'Hardik Sachdeva',
+                                       Text(
+                                        
                                         style: GoogleFonts.merriweather( textStyle: const TextStyle(
                                       color: Colors.blue,
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 27),
+                                          fontSize: 17),
                                 )
                                       ),
                                       SizedBox(
