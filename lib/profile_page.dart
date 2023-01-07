@@ -23,6 +23,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         });
     var decode = json.decode(response.body.toString());
     var name = decode["data"][0]["name"];
+
     return name;
   }
 
