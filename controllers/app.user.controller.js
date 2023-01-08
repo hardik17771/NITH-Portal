@@ -73,48 +73,57 @@ Verify your email address to complete the signup and login into your account.<p>
   const saltRounds = 10;
   bcrypt
     .hash(uniqueString, saltRounds)
-    .then((hashedUniqueString) => {
+    .then(async (hashedUniqueString) => {
+      const check = await StudentVerification.find({ userId: _id });
       //set values in userVerification
-      const userVerification = new StudentVerification({
-        userId: _id,
-        uniqueString: hashedUniqueString,
-        createdAt: Date.now(),
-        expiresAt: Date.now() + 21600000,
-      });
-      userVerification
-        .save()
-        .then(() => {
-          // console.log(mailOptions);
-          transporter
-            .sendMail(mailOptions)
-            .then(() => {
-              //email sent and verification saved
-              res.status(201).json({
-                type: "PENDING",
-                message: "verification mail sent successfully",
-              });
-            })
-            .catch((err) => {
-              console.log(err);
-              res.status(201).json({
-                type: "failure",
-                message: "verification email not sent",
-              });
-            });
-        })
-        .catch((err) => {
-          console.log(err);
-          res.status(201).json({
-            type: "failure",
-            message: "verification email not sent",
-          });
+      if (!check.length > 0) {
+        console.log(check);
+        const userVerification = new StudentVerification({
+          userId: _id,
+          uniqueString: hashedUniqueString,
+          createdAt: Date.now(),
+          expiresAt: Date.now() + 21600000,
         });
+        userVerification
+          .save()
+          .then(() => {
+            // console.log(mailOptions);
+            transporter
+              .sendMail(mailOptions)
+              .then(() => {
+                //email sent and verification saved
+                res.status(201).json({
+                  type: "PENDING",
+                  message: "verification mail sent successfully",
+                });
+              })
+              .catch((err) => {
+                console.log(err);
+                res.status(201).json({
+                  type: "failure",
+                  message: "verification email not sent",
+                });
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.status(201).json({
+              type: "failure",
+              message: "verification email not sent",
+            });
+          });
+      } else {
+        res.status(201).json({
+          type: "failure",
+          message: "verification email is already sent",
+        });
+      }
     })
     .catch((err) => {
       console.log(err);
       res.status(201).json({
         type: "failure",
-        message: "verification email mailed",
+        message: "verification email not mailed",
       });
     });
 };
@@ -127,6 +136,7 @@ module.exports.verifyEmail = (req, res) => {
   StudentVerification.find({ userId })
     .then((result) => {
       if (result.length > 0) {
+        console.log(result);
         //user verification record exits
         const { expiresAt } = result[0];
         const hashedUniqueString = result[0].uniqueString;
@@ -278,7 +288,7 @@ exports.postForm = async (req, res, next) => {
             message: "System error",
           });
         });
- 
+
       console.log(student.form);
     } else {
       res.status(201).json({
@@ -416,10 +426,40 @@ exports.guardVerify = async (req, res, next) => {
   Form.findByIdAndUpdate(id, { guardVerified: true })
 
     .then((result) => {
-      res.status(401).json({
-        type: "success",
-        message: "guard has verified your form",
-      });
+      // res.status(401).json({
+      //   type: "success",
+      //   message: "guard has verified your form",
+      // });
+      console.log(result);
+      const address = result.address;
+      const name = result.Name;
+      const email = "21bma010@nith.ac.in";
+      const mailOptions = {
+        from: process.env.GMAIL_MAIL,
+        to: email,
+        subject: `${name} has left the campus`,
+        html: `
+        ${name}'s Outpass with the request to go to ${address} has been verified by the guard`,
+      };
+      console.log(mailOptions);
+
+      transporter
+        .sendMail(mailOptions)
+        .then(() => {
+          //email sent and verification saved
+          console.log("first");
+          res.status(201).json({
+            type: "success",
+            message: "guard has verified your outpass",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(201).json({
+            type: "failure",
+            message: "verification email not sent",
+          });
+        });
     })
     .catch((err) => {
       console.log(err);
@@ -441,10 +481,36 @@ exports.guardVerifyReturn = async (req, res, next) => {
 
   Form.findByIdAndDelete(id)
     .then((result) => {
-      res.status(401).json({
-        type: "success",
-        message: "You have successfully returned",
-      });
+      console.log(result);
+      const address = result.address;
+      const name = result.Name;
+      const email = "21bma010@nith.ac.in";
+      const mailOptions = {
+        from: process.env.GMAIL_MAIL,
+        to: email,
+        subject: `${name} has returned to the campus`,
+        html: `
+        ${name} has returned to the campus `,
+      };
+      console.log(mailOptions);
+
+      transporter
+        .sendMail(mailOptions)
+        .then(() => {
+          //email sent and verification saved
+          console.log("first");
+          res.status(201).json({
+            type: "success",
+            message: "guard has verified your outpass",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(201).json({
+            type: "failure",
+            message: "verification email not sent",
+          });
+        });
     })
     .catch((err) => {
       console.log(err);
@@ -468,7 +534,7 @@ exports.mmcaDeny = async (req, res, next) => {
         to: email,
         subject: "MMCA has declined your outpass",
         html: `
-    Dear ${name} outpass with the request to go to <b>${address}</b> has been Denied .Please contact MMCA for more information`,
+    Dear ${name} your outpass with the request to go to <b>${address}</b> has been Denied .Please contact MMCA for more information`,
       };
       console.log(mailOptions);
 
