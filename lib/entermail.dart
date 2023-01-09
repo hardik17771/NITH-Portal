@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 TextEditingController oneController = TextEditingController();
@@ -146,6 +147,17 @@ class _EnterMail extends State<EnterMail> {
                               if (await postData() == 'success') {
                                 Navigator.of(context).pushNamed('/front');
                               } else if (await postData() == 'PENDING') {
+                                Loader.show(context,
+                                    isSafeAreaOverlay: false,
+                                    isBottomBarOverlay: false,
+                                    overlayFromBottom: 80,
+                                    overlayColor: Colors.black26,
+                                    progressIndicator: CircularProgressIndicator(
+                                      backgroundColor: Colors.red,
+                                    ),
+                                    themeData: Theme.of(context)
+                                        .copyWith(colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.green))
+                                );
                                 Navigator.of(context).pushNamed('/verify');
                               }
                             },

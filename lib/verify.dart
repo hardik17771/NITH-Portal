@@ -29,7 +29,7 @@ class VerifyPage extends StatelessWidget {
             child: Text('NITH Outpass Portal'),
           ),
         ),
-        body: const NewWidget(),
+        body:  const NewWidget(),
       ),
     ]);
   }
