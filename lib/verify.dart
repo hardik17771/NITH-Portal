@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'homepage.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
+import 'package:nithh/entermail.dart';
 
 class VerifyPage extends StatelessWidget {
   const VerifyPage({Key? key}) : super(key: key);
@@ -35,14 +36,9 @@ class VerifyPage extends StatelessWidget {
   }
 }
 
-class NewWidget extends StatefulWidget {
+class NewWidget extends StatelessWidget {
   const NewWidget({Key? key}) : super(key: key);
 
-  @override
-  State<NewWidget> createState() => _NewWidgetState();
-}
-
-class _NewWidgetState extends State<NewWidget> {
   @override
   Widget build(BuildContext context) {
     double heigh = MediaQuery.of(context).size.height;

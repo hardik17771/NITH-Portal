@@ -74,7 +74,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return id;
   }
   posttData() async{
-    print(await useeData());
     var res3= http.Client();
     var response3 = http.post(Uri.parse("https://nith-portal-11-qsje.onrender.com/api/v1/form/${await useeData()}"),
         body: {

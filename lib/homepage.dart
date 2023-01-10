@@ -81,10 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: widt * 0.03,
                   ),
                      Padding(
-                    padding: EdgeInsets.all(62.0),
+                    padding: const EdgeInsets.all(62.0),
                     child: Center(
                       child: Padding(
-                        padding: EdgeInsets.all(3.0),
+                        padding: const EdgeInsets.all(3.0),
                         child: Text(
                           'Welcome!',
                           textAlign: TextAlign.center,
@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             fontWeight: FontWeight.bold,
                             color: Colors.blue,
 
-                            fontSize: 38,
+                            fontSize: 35,
                           ),
                            ),
                         ),

@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         '/formhome' : (BuildContext context) => const FormHomePage(),
         '/front': (BuildContext context) =>  ProfileScreen(),
         '/verify': (BuildContext context) => const VerifyPage(),
-        '/mail': (BuildContext context) => const EnterMail(),
+        '/mail': (BuildContext context) =>  const EnterMail(),
         '/final': (BuildContext context) => const SubmitPage(),
       }
     );
