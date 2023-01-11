@@ -1,3 +1,7 @@
+
+
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -7,14 +11,17 @@ class MyHomePage extends StatefulWidget {
 
   @override
 
+
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
 
 
+
   @override
   Widget build(BuildContext context) {
+
     double heigh = MediaQuery.of(context).size.height;
     double widt = MediaQuery.of(context).size.width;
     return Stack(
@@ -114,8 +121,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 80,
                       width: 240,
                       child: ElevatedButton(
-                        onPressed:() =>
-                          Navigator.of(context).pushNamed('/mail'),
+                        onPressed: () async {
+
+                            Navigator.of(context).pushNamed('/mail');
+
+                        },
 
                         style:
                         ElevatedButton.styleFrom(

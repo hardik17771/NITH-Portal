@@ -41,6 +41,7 @@ dependencies:
   flutter_inappwebview: ^5.7.2+3
   flutter_overlay_loader: ^2.0.0
   async: ^2.9.0
+  device_info_plus: ^8.0.0
 
 dev_dependencies:
   flutter_test:

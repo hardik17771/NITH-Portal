@@ -1,3 +1,4 @@
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:nithh/homepage.dart';
@@ -26,9 +27,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     return name;
   }
+  Future<String> _getId() async {
+    var deviceInfo = DeviceInfoPlugin();
+
+    var uniqueID = await deviceInfo.androidInfo;
+    print(uniqueID.id);
+    return uniqueID.id;
+// unique ID on Android
+
+  }
 
   @override
   Widget build(BuildContext context) {
+
     double widt = MediaQuery.of(context).size.width;
     double heigh = MediaQuery.of(context).size.height;
     return Stack(
@@ -333,10 +344,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           );
                         }
                       }),
+
                 ),
               )),
         ),
       ],
     );
+
   }
 }

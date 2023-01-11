@@ -1,10 +1,12 @@
 import 'dart:convert';
 
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
+import 'homepage.dart';
 TextEditingController oneController = TextEditingController();
 // class Album {
 // //
@@ -42,6 +44,18 @@ class _EnterMailState extends State<EnterMail> {
       print(verify);
     }
     return verify;
+  }
+  Future<String> _getId() async {
+    var deviceInfo = DeviceInfoPlugin();
+
+    var infoo = await deviceInfo.androidInfo;
+    var phoneID=(infoo.id);
+    if (kDebugMode) {
+      print (phoneID);
+    }
+    return phoneID;
+// unique ID on Android
+
   }
 
   // final  _calculation= async postData();
