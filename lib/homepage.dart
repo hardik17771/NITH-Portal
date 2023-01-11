@@ -48,8 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
       Center(
         child: SizedBox(
-          height: heigh * 0.76 ,
-          width: widt * 0.85 ,
+          height: heigh * 0.8,
+          width: widt * 0.89,
           child: Card(
             shadowColor: Colors.black,
             shape: RoundedRectangleBorder(
@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: widt * 0.03,
                   ),
                      Padding(
-                    padding: const EdgeInsets.all(62.0),
+                    padding:  EdgeInsets.all(62.0),
                     child: Center(
                       child: Padding(
                         padding: const EdgeInsets.all(3.0),
@@ -90,12 +90,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           textAlign: TextAlign.center,
 
                            style: GoogleFonts.merriweather(
-                          textStyle: const TextStyle(
+                          textStyle:  TextStyle(
 
                             fontWeight: FontWeight.bold,
                             color: Colors.blue,
 
-                            fontSize: 35,
+                            fontSize: widt * 0.095,
                           ),
                            ),
                         ),
