@@ -12,7 +12,6 @@ import 'package:url_launcher/url_launcher.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
 

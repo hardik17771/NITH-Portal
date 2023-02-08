@@ -31,7 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  shared_preferences: ^2.0.15
+
+  shared_preferences: ^2.0.17
   url_launcher:
   cupertino_icons: ^1.0.2
   http: ^0.13.5
@@ -42,6 +43,8 @@ dependencies:
   flutter_overlay_loader: ^2.0.0
   async: ^2.9.0
   device_info_plus: ^8.0.0
+  flutter_svg: ^2.0.0+1
+  flutter_credit_card: ^3.0.5
 
 dev_dependencies:
   flutter_test:

@@ -1,14 +1,22 @@
 import 'dart:convert';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'homepage.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'profile_page.dart';
 import 'entermail.dart';
-class FormPage extends StatelessWidget {
+import 'package:flutter_credit_card/credit_card_form.dart';
+import 'package:flutter_credit_card/credit_card_model.dart';
+import 'package:flutter_credit_card/flutter_credit_card.dart';
+
+class FormPage extends StatefulWidget {
+
   const FormPage({Key? key}) : super(key: key);
+
+  @override
+  State<FormPage> createState() => _FormPageState();
+}
+
+class _FormPageState extends State<FormPage> {
 
 
   @override
@@ -53,6 +61,8 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   TextEditingController firstController = TextEditingController();
   TextEditingController twoController = TextEditingController();
   TextEditingController threeController = TextEditingController();
@@ -60,6 +70,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController fiveController = TextEditingController();
   TextEditingController sixController = TextEditingController();
   TextEditingController sevenController = TextEditingController();
+  String cardNumber = '';
+  String expiryDate= '';
+  String cardHolderName = '';
+  String cvvCode= '';
+  bool isCvvFocused = false;
+
   bool _isLoading = false;
   Future<String> useeData() async {
     var res1 = http.Client();
@@ -111,6 +127,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           child: Center(
             child: ListView(
               children: <Widget>[
+                CreditCardWidget(
+                  cardType: CardType.mastercard,
+                  isHolderNameVisible: true,
+                  isChipVisible: true,
+                    cardNumber:cardNumber,
+                    expiryDate: expiryDate,
+                    cardHolderName: firstController.text,
+                    cvvCode: cvvCode,
+                    bankName: 'Outpass Fill',
+                    showBackView: false,
+                  onCreditCardWidgetChange: (creditCardBrand ) {  },
+                ),
+
+
                 Container(
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(10),
@@ -315,5 +345,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ),
       ),
     );
+  }
+  void onCreditCardModelChange(CreditCardModel creditCardModel){
+    setState(() {
+      cardNumber = creditCardModel.cardNumber;
+      expiryDate = creditCardModel.expiryDate;
+      cardHolderName = creditCardModel.cardHolderName;
+      cvvCode = creditCardModel.cvvCode;
+      isCvvFocused = creditCardModel.isCvvFocused;
+    });
   }
 }
