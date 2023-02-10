@@ -110,7 +110,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         body: {
         "Name":useData(),
         "Department":threeController.text,
-        "roll":threeController.text,
+        "roll":twoController.text,
         "RoomNum":fourController.text,
         "phone":fiveController.text,
           "address":sixController.text,
@@ -218,7 +218,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue, width: 2.0),
                         ),
-                        labelText: 'Department',
+                        labelText: 'Roll',
                         labelStyle: TextStyle(
                           color: Colors.black,
                         ),
