@@ -76,6 +76,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   String cvvCode= '';
   bool isCvvFocused = false;
 
+
+  useData() async {
+    var res1 = http.Client();
+    var response = await http.post(
+        Uri.parse("https://nith-portal-11-qsje.onrender.com/api/v1/login"),
+        body: {
+          'email': oneController.text,
+        });
+    var decode = json.decode(response.body.toString());
+    var name = decode["data"][0]["name"];
+
+    return name;
+  }
+
   bool _isLoading = false;
   Future<String> useeData() async {
     var res1 = http.Client();
@@ -178,20 +192,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     )),
                 Container(
                   padding: const EdgeInsets.all(10),
-                  child: TextFormField(
-                    controller: firstController,
+                  child: Text(
 
-                    decoration: const InputDecoration(
-
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                    '${useData()}',
+                    textAlign: TextAlign.left,
+                    style: GoogleFonts.merriweather(
+                      textStyle: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                        fontSize: 20,
                       ),
-                      labelText: 'Name',
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
+                    ),),
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
