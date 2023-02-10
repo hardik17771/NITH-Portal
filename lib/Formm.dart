@@ -108,8 +108,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     var res3= http.Client();
     var response3 = http.post(Uri.parse("https://nith-portal-11-qsje.onrender.com/api/v1/form/${await useeData()}"),
         body: {
-        "Name":firstController.text,
-        "Department":twoController.text,
+        "Name":useData(),
+        "Department":threeController.text,
         "roll":threeController.text,
         "RoomNum":fourController.text,
         "phone":fiveController.text,
@@ -126,236 +126,257 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
     double heigh = MediaQuery.of(context).size.height;
     double widt = MediaQuery.of(context).size.width;
-    return Center(
+    return FutureBuilder(
+      future: useData(),
+      builder: (BuildContext context, AsyncSnapshot snapshot){
+        if(snapshot.hasData){
+      return Center(
 
-      child: SizedBox(
-        height: heigh * 0.76 ,
-        width: widt * 0.85 ,
-        child: Card(
-          shadowColor: Colors.black,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          color: Colors.white60,
-          elevation: 10,
-          child: Center(
-            child: ListView(
-              children: <Widget>[
-                CreditCardWidget(
-                  cardType: CardType.mastercard,
-                  isHolderNameVisible: true,
-                  isChipVisible: true,
-                    cardNumber:cardNumber,
-                    expiryDate: expiryDate,
-                    cardHolderName: firstController.text,
-                    cvvCode: cvvCode,
-                    bankName: 'Outpass Fill',
-                    showBackView: false,
-                  onCreditCardWidgetChange: (creditCardBrand ) {  },
-                ),
+        child: SizedBox(
+          height: heigh * 0.76 ,
+          width: widt * 0.85 ,
+          child: Card(
+            shadowColor: Colors.black,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            color: Colors.white60,
+            elevation: 10,
+            child: Center(
+              child: ListView(
+                children: <Widget>[
+                  CreditCardWidget(
+                    cardType: CardType.mastercard,
+                    isHolderNameVisible: true,
+                    isChipVisible: true,
+                      cardNumber:cardNumber,
+                      expiryDate: expiryDate,
+                      cardHolderName: firstController.text,
+                      cvvCode: cvvCode,
+                      bankName: 'Outpass Fill',
+                      showBackView: false,
+                    onCreditCardWidgetChange: (creditCardBrand ) {  },
+                  ),
 
 
-                Container(
-                    alignment: Alignment.center,
+                  Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+
+                        'Enter Details',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.merriweather(
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                            fontSize: 35,
+                          ),
+                        ),),
+                  ),
+                  const Divider(
+                    color: Colors.blue,
+                    height: 10,
+                    indent: 80,
+                    endIndent: 80,
+                  ),
+                  Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(30),
+                      child:  Text(
+                        'Fill Form',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.merriweather(
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                            fontSize: 25,
+                          ),
+                        ),
+                      )),
+                  Container(
                     padding: const EdgeInsets.all(10),
                     child: Text(
 
-                      'Enter Details',
-                      textAlign: TextAlign.center,
+                      (snapshot.data),
+                      textAlign: TextAlign.left,
                       style: GoogleFonts.merriweather(
                         textStyle: const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.blue,
-                          fontSize: 35,
+                          fontSize: 20,
                         ),
                       ),),
-                ),
-                const Divider(
-                  color: Colors.blue,
-                  height: 10,
-                  indent: 80,
-                  endIndent: 80,
-                ),
-                Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(30),
-                    child:  Text(
-                      'Fill Form',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.merriweather(
-                        textStyle: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue,
-                          fontSize: 25,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: TextFormField(
+
+                      controller: twoController,
+                      decoration: const InputDecoration(
+
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                        ),
+                        labelText: 'Department',
+                        labelStyle: TextStyle(
+                          color: Colors.black,
                         ),
                       ),
-                    )),
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Text(
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: TextFormField(
 
-                    '${useData()}',
-                    textAlign: TextAlign.left,
-                    style: GoogleFonts.merriweather(
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue,
-                        fontSize: 20,
-                      ),
-                    ),),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextFormField(
+                      controller: threeController,
+                      decoration: const InputDecoration(
 
-                    controller: twoController,
-                    decoration: const InputDecoration(
-
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2.0),
-                      ),
-                      labelText: 'Department',
-                      labelStyle: TextStyle(
-                        color: Colors.black,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                        ),
+                        labelText: 'Department',
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextFormField(
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: TextFormField(
 
-                    controller: threeController,
-                    decoration: const InputDecoration(
+                      controller: fourController,
+                      decoration: const InputDecoration(
 
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2.0),
-                      ),
-                      labelText: 'Roll',
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextFormField(
-
-                    controller: fourController,
-                    decoration: const InputDecoration(
-
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2.0),
-                      ),
-                      labelText: 'Room Number',
-                      labelStyle: TextStyle(
-                        color: Colors.black,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                        ),
+                        labelText: 'Room Number',
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextFormField(
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: TextFormField(
 
-                    controller: fiveController,
-                    decoration: const InputDecoration(
+                      controller: fiveController,
+                      decoration: const InputDecoration(
 
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2.0),
-                      ),
-                      labelText: 'Phone Number',
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextFormField(
-
-                    controller: sixController,
-                    decoration: const InputDecoration(
-
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2.0),
-                      ),
-                      labelText: 'Address',
-                      labelStyle: TextStyle(
-                        color: Colors.black,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                        ),
+                        labelText: 'Phone Number',
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextFormField(
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: TextFormField(
 
-                    controller: sevenController,
-                    decoration: const InputDecoration(
+                      controller: sixController,
+                      decoration: const InputDecoration(
 
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2.0),
-                      ),
-                      labelText: 'Description About Outing',
-                      labelStyle: TextStyle(
-                        color: Colors.black,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                        ),
+                        labelText: 'Address',
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                  width: 60,
-                ),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: TextFormField(
 
-                Container(
+                      controller: sevenController,
+                      decoration: const InputDecoration(
+
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                        ),
+                        labelText: 'Description About Outing',
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                    width: 60,
+                  ),
+
+                  Container(
 
 
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                  child: UnconstrainedBox(
-                    child: SizedBox(
-                      height: 70,
-                      width: 200,
-                      child: ElevatedButton( onPressed:()=>
-                      { posttData(),
-                        Navigator.of(context).pushNamed('/final'),},
-                        style: ElevatedButton.styleFrom(
-                          side: const BorderSide(
-                              width: 5, color: Colors.blue),
-                          primary: const Color(0xFF5391BF),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(200),
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    child: UnconstrainedBox(
+                      child: SizedBox(
+                        height: 70,
+                        width: 200,
+                        child: ElevatedButton( onPressed:()=>
+                        { posttData(),
+                          Navigator.of(context).pushNamed('/final'),},
+                          style: ElevatedButton.styleFrom(
+                            side: const BorderSide(
+                                width: 5, color: Colors.blue),
+                            primary: const Color(0xFF5391BF),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(200),
+                            ),
                           ),
-                        ),
-                        child: const Text(
-                          'Submit',
-                          style: TextStyle(
-                            fontSize: 30,
+                          child: const Text(
+                            'Submit',
+                            style: TextStyle(
+                              fontSize: 30,
+                            ),
                           ),
+
+
                         ),
-
-
                       ),
                     ),
                   ),
-                ),
 
-                const Divider(
-                  color: Colors.white,
-                  height: 10,
-                  indent: 80,
-                  endIndent: 80,
-                ),
+                  const Divider(
+                    color: Colors.white,
+                    height: 10,
+                    indent: 80,
+                    endIndent: 80,
+                  ),
 
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-      ),
-    );
+                ),
+        );
+
+    }
+        else
+          {
+          return const Center(
+          child: Text(
+          "loading",
+          style: TextStyle(
+          fontSize: 20,
+          ),
+          ),
+          );
+          }
+          });
+
+
+
   }
   void onCreditCardModelChange(CreditCardModel creditCardModel){
     setState(() {
