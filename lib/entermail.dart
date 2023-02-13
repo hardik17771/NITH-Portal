@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
+import 'entermail.dart';
 import 'homepage.dart';
 TextEditingController oneController = TextEditingController();
 // class Album {
@@ -139,8 +140,11 @@ class _EnterMailState extends State<EnterMail> {
                       Container(
                         padding: const EdgeInsets.all(10),
                         child: TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          autofillHints: const [AutofillHints.email],
                           controller: oneController,
                           decoration: const InputDecoration(
+                            prefixIcon: Icon(Icons.mail),
                             enabledBorder: OutlineInputBorder(
                               borderSide:
                                   BorderSide(color: Colors.blue, width: 1.0),
@@ -149,6 +153,7 @@ class _EnterMailState extends State<EnterMail> {
                             labelStyle:
                                 TextStyle(color: Colors.blue, fontSize: 25),
                           ),
+                          validator: (email)=> ,
                         ),
                       ),
                       SizedBox(
