@@ -58,7 +58,13 @@ class _EnterMailState extends State<EnterMail> {
 // unique ID on Android
 
   }
-
+  final _form = GlobalKey<FormState>();
+  void _saveForm() {
+    final isValid = _form.currentState?.validate();
+    if (!isValid!) {
+      return;
+    }
+  }
   // final  _calculation= async postData();
   @override
   Widget build(BuildContext context) {
@@ -139,21 +145,34 @@ class _EnterMailState extends State<EnterMail> {
                     AssetImage(''),),*/
                       Container(
                         padding: const EdgeInsets.all(10),
-                        child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          autofillHints: const [AutofillHints.email],
-                          controller: oneController,
-                          decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.mail),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.blue, width: 1.0),
+                        child: Form(
+                          key: _form,
+                          child: TextFormField(
+
+                            keyboardType: TextInputType.emailAddress,
+                            autofillHints: const [AutofillHints.email],
+                            controller: oneController,
+                            decoration: const InputDecoration(
+                              prefixIcon: Icon(Icons.mail),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.blue, width: 1.0),
+                              ),
+                              labelText: 'Enter Here',
+                              labelStyle:
+                                  TextStyle(color: Colors.blue, fontSize: 25),
                             ),
-                            labelText: 'Enter Here',
-                            labelStyle:
-                                TextStyle(color: Colors.blue, fontSize: 25),
+                            validator: (text){
+                              if (text == null || text.isEmpty) {
+                                return 'Text is empty';
+                              }
+                              else if(!(text.contains('@')) && text.isNotEmpty)
+                                {
+                                  return 'Invalid Email Address';
+                                }
+                              return null;
+                            },
                           ),
-                          validator: (email)=> ,
                         ),
                       ),
                       SizedBox(
@@ -167,10 +186,13 @@ class _EnterMailState extends State<EnterMail> {
                           child: ElevatedButton(
                             onPressed: () async {
                               if (await postData() == 'success') {
+                                _saveForm();
                                 Navigator.of(context).pushNamed('/front');
-                              } else  {
 
+                              } else  {
+                                _saveForm();
                                 Navigator.of(context).pushNamed('/verify');
+
                               }
                             },
                             style: ElevatedButton.styleFrom(
