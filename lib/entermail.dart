@@ -148,7 +148,7 @@ class _EnterMailState extends State<EnterMail> {
                         child: Form(
                           key: _form,
                           child: TextFormField(
-
+                            maxLength: 19,
                             keyboardType: TextInputType.emailAddress,
                             autofillHints: const [AutofillHints.email],
                             controller: oneController,
@@ -164,11 +164,11 @@ class _EnterMailState extends State<EnterMail> {
                             ),
                             validator: (text){
                               if (text == null || text.isEmpty) {
-                                return 'Text is empty';
+                                return 'No mail entered';
                               }
-                              else if(!(text.contains('@')) && text.isNotEmpty)
+                              else if(!(text.contains('@nith.ac.in')) && text.isNotEmpty)
                                 {
-                                  return 'Invalid Email Address';
+                                  return 'Please enter a valid Institute mail address';
                                 }
                               return null;
                             },
@@ -185,12 +185,13 @@ class _EnterMailState extends State<EnterMail> {
                           width: widt * 0.5,
                           child: ElevatedButton(
                             onPressed: () async {
+                              _saveForm();
                               if (await postData() == 'success') {
-                                _saveForm();
+
                                 Navigator.of(context).pushNamed('/front');
 
                               } else  {
-                                _saveForm();
+
                                 Navigator.of(context).pushNamed('/verify');
 
                               }
