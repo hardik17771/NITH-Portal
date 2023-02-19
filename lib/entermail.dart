@@ -9,19 +9,7 @@ import 'package:http/http.dart' as http;
 import 'entermail.dart';
 import 'homepage.dart';
 TextEditingController oneController = TextEditingController();
-// class Album {
-// //
-// //   final String verify;
-// //
-// //   const Album({required this.verify});
-// //
-// //   factory Album.fromJson(Map<String, dynamic> json) {
-// //     return Album(
-// //       verify: json['type'],
-//
-//     );
-//   }
-// }
+
 class EnterMail extends StatefulWidget {
   const EnterMail({Key? key}) : super(key: key);
 
@@ -164,11 +152,11 @@ class _EnterMailState extends State<EnterMail> {
                             ),
                             validator: (text){
                               if (text == null || text.isEmpty) {
-                                return 'No mail entered';
+                                return 'Please enter a Mail Address';
                               }
                               else if(!(text.contains('@nith.ac.in')) && text.isNotEmpty)
                                 {
-                                  return 'Please enter a valid Institute mail address';
+                                  return 'Please enter a valid Institute Mail Address';
                                 }
                               return null;
                             },
